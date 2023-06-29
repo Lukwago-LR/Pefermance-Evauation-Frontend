@@ -1,0 +1,82 @@
+﻿/*START HEADER*/
+.conting{
+    background-color: red;
+}
+
+
+#heading{
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+}
+
+
+/*START HOME-PAGE*/ 
+
+/*nav ul li a{
+    font-size: 10px;
+    font-weight: 100;
+}*/
+
+nav ul li a:hover {
+    background: orangered;
+}
+
+.navback{
+    background-color:dimgray;
+}
+
+.badge {
+    padding: 3px 3px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+}
+/*END HEADER*/
+
+
+/*END HEADER*/
+.myfoot {
+    background-color: dimgray;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+}
+.myfoot p{
+    color: white;
+}
+
+.myfoot a:hover{
+     background-color: orangered;
+}
+/*END FOOTER*/
+
+
+/*START HOME-PAGE*/
+.sec {
+    background-color: lightgrey;
+    color: white;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+}
+
+.qua-img{
+    width: 200px;
+}
+/*END HOME-PAGE*/
+
+
+/*START HOME-PAGE*/
+.sec2 p {
+    color:black;
+}
+
+.sec3 h5 {
+    color: red;
+}
+/*END HOME-PAGE*/
+
+/*START SENIOR RESEARCHER*/
+.choosing a:hover {
+    background-color: blue;
+}
+
+/*END SENIOR RESEARCHER*/

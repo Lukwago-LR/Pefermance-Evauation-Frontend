@@ -1,0 +1,2224 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61322BFE-0565-4306-B3DE-47962AAB4E54}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SATRI_CLIENT</RootNamespace>
+    <AssemblyName>SATRI_CLIENT</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44318</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>packages\CommonServiceLocator.2.0.5\lib\net47\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="ExpressionEvaluator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=90d9f15d622e2348, processorArchitecture=MSIL">
+      <HintPath>packages\ExpressionEvaluator.2.0.4.0\lib\net40\ExpressionEvaluator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.1.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.106.1.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.5.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="netstandard">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Uno, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.3.10.7\lib\netstandard2.0\Uno.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.Core.3.0.0\lib\net46\Uno.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Diagnostics.Eventing, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.Diagnostics.Eventing.1.0.4\lib\netstandard2.0\Uno.Diagnostics.Eventing.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Foundation, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.3.10.7\lib\netstandard2.0\Uno.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UI, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.3.10.7\lib\netstandard2.0\Uno.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UI.FluentTheme, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.3.10.7\lib\netstandard2.0\Uno.UI.FluentTheme.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UI.FluentTheme.v1, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.3.10.7\lib\netstandard2.0\Uno.UI.FluentTheme.v1.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UI.FluentTheme.v2, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.3.10.7\lib\netstandard2.0\Uno.UI.FluentTheme.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.UI.Toolkit, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.3.10.7\lib\netstandard2.0\Uno.UI.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Uno.Xaml, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Uno.UI.3.10.7\lib\netstandard2.0\Uno.Xaml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdministratorAccount.aspx" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="bootstrap\js\jquery-3.5.1.slim.min.js" />
+    <Content Include="bootstrap\js\popper.min.js" />
+    <Content Include="ChangeProfile.aspx" />
+    <Content Include="Comment.aspx" />
+    <Content Include="css\customstylesheet.css" />
+    <Content Include="datatables\css\jquery.dataTables.min.css" />
+    <Content Include="datatables\js\jquery.dataTables.min.js" />
+    <Content Include="Decline.aspx" />
+    <Content Include="Delete.aspx" />
+    <Content Include="Display.aspx" />
+    <Content Include="ExecutiveDirectorAccount.aspx" />
+    <Content Include="frontawesome\css\all.css" />
+    <Content Include="frontawesome\css\all.min.css" />
+    <Content Include="frontawesome\css\brands.css" />
+    <Content Include="frontawesome\css\brands.min.css" />
+    <Content Include="frontawesome\css\fontawesome.css" />
+    <Content Include="frontawesome\css\fontawesome.min.css" />
+    <Content Include="frontawesome\css\regular.css" />
+    <Content Include="frontawesome\css\regular.min.css" />
+    <Content Include="frontawesome\css\solid.css" />
+    <Content Include="frontawesome\css\solid.min.css" />
+    <Content Include="frontawesome\css\svg-with-js.css" />
+    <Content Include="frontawesome\css\svg-with-js.min.css" />
+    <Content Include="frontawesome\css\v4-shims.css" />
+    <Content Include="frontawesome\css\v4-shims.min.css" />
+    <Content Include="frontawesome\js\all.js" />
+    <Content Include="frontawesome\js\all.min.js" />
+    <Content Include="frontawesome\js\brands.js" />
+    <Content Include="frontawesome\js\brands.min.js" />
+    <Content Include="frontawesome\js\conflict-detection.js" />
+    <Content Include="frontawesome\js\conflict-detection.min.js" />
+    <Content Include="frontawesome\js\fontawesome.js" />
+    <Content Include="frontawesome\js\fontawesome.min.js" />
+    <Content Include="frontawesome\js\regular.js" />
+    <Content Include="frontawesome\js\regular.min.js" />
+    <Content Include="frontawesome\js\solid.js" />
+    <Content Include="frontawesome\js\solid.min.js" />
+    <Content Include="frontawesome\js\v4-shims.js" />
+    <Content Include="frontawesome\js\v4-shims.min.js" />
+    <Content Include="frontawesome\LICENSE.txt" />
+    <Content Include="frontawesome\sprites\brands.svg" />
+    <Content Include="frontawesome\sprites\regular.svg" />
+    <Content Include="frontawesome\sprites\solid.svg" />
+    <Content Include="frontawesome\svgs\brands\500px.svg" />
+    <Content Include="frontawesome\svgs\brands\accessible-icon.svg" />
+    <Content Include="frontawesome\svgs\brands\accusoft.svg" />
+    <Content Include="frontawesome\svgs\brands\acquisitions-incorporated.svg" />
+    <Content Include="frontawesome\svgs\brands\adn.svg" />
+    <Content Include="frontawesome\svgs\brands\adobe.svg" />
+    <Content Include="frontawesome\svgs\brands\adversal.svg" />
+    <Content Include="frontawesome\svgs\brands\affiliatetheme.svg" />
+    <Content Include="frontawesome\svgs\brands\airbnb.svg" />
+    <Content Include="frontawesome\svgs\brands\algolia.svg" />
+    <Content Include="frontawesome\svgs\brands\alipay.svg" />
+    <Content Include="frontawesome\svgs\brands\amazon-pay.svg" />
+    <Content Include="frontawesome\svgs\brands\amazon.svg" />
+    <Content Include="frontawesome\svgs\brands\amilia.svg" />
+    <Content Include="frontawesome\svgs\brands\android.svg" />
+    <Content Include="frontawesome\svgs\brands\angellist.svg" />
+    <Content Include="frontawesome\svgs\brands\angrycreative.svg" />
+    <Content Include="frontawesome\svgs\brands\angular.svg" />
+    <Content Include="frontawesome\svgs\brands\app-store-ios.svg" />
+    <Content Include="frontawesome\svgs\brands\app-store.svg" />
+    <Content Include="frontawesome\svgs\brands\apper.svg" />
+    <Content Include="frontawesome\svgs\brands\apple-pay.svg" />
+    <Content Include="frontawesome\svgs\brands\apple.svg" />
+    <Content Include="frontawesome\svgs\brands\artstation.svg" />
+    <Content Include="frontawesome\svgs\brands\asymmetrik.svg" />
+    <Content Include="frontawesome\svgs\brands\atlassian.svg" />
+    <Content Include="frontawesome\svgs\brands\audible.svg" />
+    <Content Include="frontawesome\svgs\brands\autoprefixer.svg" />
+    <Content Include="frontawesome\svgs\brands\avianex.svg" />
+    <Content Include="frontawesome\svgs\brands\aviato.svg" />
+    <Content Include="frontawesome\svgs\brands\aws.svg" />
+    <Content Include="frontawesome\svgs\brands\bandcamp.svg" />
+    <Content Include="frontawesome\svgs\brands\battle-net.svg" />
+    <Content Include="frontawesome\svgs\brands\behance-square.svg" />
+    <Content Include="frontawesome\svgs\brands\behance.svg" />
+    <Content Include="frontawesome\svgs\brands\bimobject.svg" />
+    <Content Include="frontawesome\svgs\brands\bitbucket.svg" />
+    <Content Include="frontawesome\svgs\brands\bitcoin.svg" />
+    <Content Include="frontawesome\svgs\brands\bity.svg" />
+    <Content Include="frontawesome\svgs\brands\black-tie.svg" />
+    <Content Include="frontawesome\svgs\brands\blackberry.svg" />
+    <Content Include="frontawesome\svgs\brands\blogger-b.svg" />
+    <Content Include="frontawesome\svgs\brands\blogger.svg" />
+    <Content Include="frontawesome\svgs\brands\bluetooth-b.svg" />
+    <Content Include="frontawesome\svgs\brands\bluetooth.svg" />
+    <Content Include="frontawesome\svgs\brands\bootstrap.svg" />
+    <Content Include="frontawesome\svgs\brands\btc.svg" />
+    <Content Include="frontawesome\svgs\brands\buffer.svg" />
+    <Content Include="frontawesome\svgs\brands\buromobelexperte.svg" />
+    <Content Include="frontawesome\svgs\brands\buy-n-large.svg" />
+    <Content Include="frontawesome\svgs\brands\buysellads.svg" />
+    <Content Include="frontawesome\svgs\brands\canadian-maple-leaf.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-amazon-pay.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-amex.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-apple-pay.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-diners-club.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-discover.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-jcb.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-mastercard.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-paypal.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-stripe.svg" />
+    <Content Include="frontawesome\svgs\brands\cc-visa.svg" />
+    <Content Include="frontawesome\svgs\brands\centercode.svg" />
+    <Content Include="frontawesome\svgs\brands\centos.svg" />
+    <Content Include="frontawesome\svgs\brands\chrome.svg" />
+    <Content Include="frontawesome\svgs\brands\chromecast.svg" />
+    <Content Include="frontawesome\svgs\brands\cloudscale.svg" />
+    <Content Include="frontawesome\svgs\brands\cloudsmith.svg" />
+    <Content Include="frontawesome\svgs\brands\cloudversify.svg" />
+    <Content Include="frontawesome\svgs\brands\codepen.svg" />
+    <Content Include="frontawesome\svgs\brands\codiepie.svg" />
+    <Content Include="frontawesome\svgs\brands\confluence.svg" />
+    <Content Include="frontawesome\svgs\brands\connectdevelop.svg" />
+    <Content Include="frontawesome\svgs\brands\contao.svg" />
+    <Content Include="frontawesome\svgs\brands\cotton-bureau.svg" />
+    <Content Include="frontawesome\svgs\brands\cpanel.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-by.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-nc-eu.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-nc-jp.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-nc.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-nd.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-pd-alt.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-pd.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-remix.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-sa.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-sampling-plus.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-sampling.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-share.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons-zero.svg" />
+    <Content Include="frontawesome\svgs\brands\creative-commons.svg" />
+    <Content Include="frontawesome\svgs\brands\critical-role.svg" />
+    <Content Include="frontawesome\svgs\brands\css3-alt.svg" />
+    <Content Include="frontawesome\svgs\brands\css3.svg" />
+    <Content Include="frontawesome\svgs\brands\cuttlefish.svg" />
+    <Content Include="frontawesome\svgs\brands\d-and-d-beyond.svg" />
+    <Content Include="frontawesome\svgs\brands\d-and-d.svg" />
+    <Content Include="frontawesome\svgs\brands\dailymotion.svg" />
+    <Content Include="frontawesome\svgs\brands\dashcube.svg" />
+    <Content Include="frontawesome\svgs\brands\deezer.svg" />
+    <Content Include="frontawesome\svgs\brands\delicious.svg" />
+    <Content Include="frontawesome\svgs\brands\deploydog.svg" />
+    <Content Include="frontawesome\svgs\brands\deskpro.svg" />
+    <Content Include="frontawesome\svgs\brands\dev.svg" />
+    <Content Include="frontawesome\svgs\brands\deviantart.svg" />
+    <Content Include="frontawesome\svgs\brands\dhl.svg" />
+    <Content Include="frontawesome\svgs\brands\diaspora.svg" />
+    <Content Include="frontawesome\svgs\brands\digg.svg" />
+    <Content Include="frontawesome\svgs\brands\digital-ocean.svg" />
+    <Content Include="frontawesome\svgs\brands\discord.svg" />
+    <Content Include="frontawesome\svgs\brands\discourse.svg" />
+    <Content Include="frontawesome\svgs\brands\dochub.svg" />
+    <Content Include="frontawesome\svgs\brands\docker.svg" />
+    <Content Include="frontawesome\svgs\brands\draft2digital.svg" />
+    <Content Include="frontawesome\svgs\brands\dribbble-square.svg" />
+    <Content Include="frontawesome\svgs\brands\dribbble.svg" />
+    <Content Include="frontawesome\svgs\brands\dropbox.svg" />
+    <Content Include="frontawesome\svgs\brands\drupal.svg" />
+    <Content Include="frontawesome\svgs\brands\dyalog.svg" />
+    <Content Include="frontawesome\svgs\brands\earlybirds.svg" />
+    <Content Include="frontawesome\svgs\brands\ebay.svg" />
+    <Content Include="frontawesome\svgs\brands\edge-legacy.svg" />
+    <Content Include="frontawesome\svgs\brands\edge.svg" />
+    <Content Include="frontawesome\svgs\brands\elementor.svg" />
+    <Content Include="frontawesome\svgs\brands\ello.svg" />
+    <Content Include="frontawesome\svgs\brands\ember.svg" />
+    <Content Include="frontawesome\svgs\brands\empire.svg" />
+    <Content Include="frontawesome\svgs\brands\envira.svg" />
+    <Content Include="frontawesome\svgs\brands\erlang.svg" />
+    <Content Include="frontawesome\svgs\brands\ethereum.svg" />
+    <Content Include="frontawesome\svgs\brands\etsy.svg" />
+    <Content Include="frontawesome\svgs\brands\evernote.svg" />
+    <Content Include="frontawesome\svgs\brands\expeditedssl.svg" />
+    <Content Include="frontawesome\svgs\brands\facebook-f.svg" />
+    <Content Include="frontawesome\svgs\brands\facebook-messenger.svg" />
+    <Content Include="frontawesome\svgs\brands\facebook-square.svg" />
+    <Content Include="frontawesome\svgs\brands\facebook.svg" />
+    <Content Include="frontawesome\svgs\brands\fantasy-flight-games.svg" />
+    <Content Include="frontawesome\svgs\brands\fedex.svg" />
+    <Content Include="frontawesome\svgs\brands\fedora.svg" />
+    <Content Include="frontawesome\svgs\brands\figma.svg" />
+    <Content Include="frontawesome\svgs\brands\firefox-browser.svg" />
+    <Content Include="frontawesome\svgs\brands\firefox.svg" />
+    <Content Include="frontawesome\svgs\brands\first-order-alt.svg" />
+    <Content Include="frontawesome\svgs\brands\first-order.svg" />
+    <Content Include="frontawesome\svgs\brands\firstdraft.svg" />
+    <Content Include="frontawesome\svgs\brands\flickr.svg" />
+    <Content Include="frontawesome\svgs\brands\flipboard.svg" />
+    <Content Include="frontawesome\svgs\brands\fly.svg" />
+    <Content Include="frontawesome\svgs\brands\font-awesome-alt.svg" />
+    <Content Include="frontawesome\svgs\brands\font-awesome-flag.svg" />
+    <Content Include="frontawesome\svgs\brands\font-awesome-logo-full.svg" />
+    <Content Include="frontawesome\svgs\brands\font-awesome.svg" />
+    <Content Include="frontawesome\svgs\brands\fonticons-fi.svg" />
+    <Content Include="frontawesome\svgs\brands\fonticons.svg" />
+    <Content Include="frontawesome\svgs\brands\fort-awesome-alt.svg" />
+    <Content Include="frontawesome\svgs\brands\fort-awesome.svg" />
+    <Content Include="frontawesome\svgs\brands\forumbee.svg" />
+    <Content Include="frontawesome\svgs\brands\foursquare.svg" />
+    <Content Include="frontawesome\svgs\brands\free-code-camp.svg" />
+    <Content Include="frontawesome\svgs\brands\freebsd.svg" />
+    <Content Include="frontawesome\svgs\brands\fulcrum.svg" />
+    <Content Include="frontawesome\svgs\brands\galactic-republic.svg" />
+    <Content Include="frontawesome\svgs\brands\galactic-senate.svg" />
+    <Content Include="frontawesome\svgs\brands\get-pocket.svg" />
+    <Content Include="frontawesome\svgs\brands\gg-circle.svg" />
+    <Content Include="frontawesome\svgs\brands\gg.svg" />
+    <Content Include="frontawesome\svgs\brands\git-alt.svg" />
+    <Content Include="frontawesome\svgs\brands\git-square.svg" />
+    <Content Include="frontawesome\svgs\brands\git.svg" />
+    <Content Include="frontawesome\svgs\brands\github-alt.svg" />
+    <Content Include="frontawesome\svgs\brands\github-square.svg" />
+    <Content Include="frontawesome\svgs\brands\github.svg" />
+    <Content Include="frontawesome\svgs\brands\gitkraken.svg" />
+    <Content Include="frontawesome\svgs\brands\gitlab.svg" />
+    <Content Include="frontawesome\svgs\brands\gitter.svg" />
+    <Content Include="frontawesome\svgs\brands\glide-g.svg" />
+    <Content Include="frontawesome\svgs\brands\glide.svg" />
+    <Content Include="frontawesome\svgs\brands\gofore.svg" />
+    <Content Include="frontawesome\svgs\brands\goodreads-g.svg" />
+    <Content Include="frontawesome\svgs\brands\goodreads.svg" />
+    <Content Include="frontawesome\svgs\brands\google-drive.svg" />
+    <Content Include="frontawesome\svgs\brands\google-pay.svg" />
+    <Content Include="frontawesome\svgs\brands\google-play.svg" />
+    <Content Include="frontawesome\svgs\brands\google-plus-g.svg" />
+    <Content Include="frontawesome\svgs\brands\google-plus-square.svg" />
+    <Content Include="frontawesome\svgs\brands\google-plus.svg" />
+    <Content Include="frontawesome\svgs\brands\google-wallet.svg" />
+    <Content Include="frontawesome\svgs\brands\google.svg" />
+    <Content Include="frontawesome\svgs\brands\gratipay.svg" />
+    <Content Include="frontawesome\svgs\brands\grav.svg" />
+    <Content Include="frontawesome\svgs\brands\gripfire.svg" />
+    <Content Include="frontawesome\svgs\brands\grunt.svg" />
+    <Content Include="frontawesome\svgs\brands\gulp.svg" />
+    <Content Include="frontawesome\svgs\brands\hacker-news-square.svg" />
+    <Content Include="frontawesome\svgs\brands\hacker-news.svg" />
+    <Content Include="frontawesome\svgs\brands\hackerrank.svg" />
+    <Content Include="frontawesome\svgs\brands\hips.svg" />
+    <Content Include="frontawesome\svgs\brands\hire-a-helper.svg" />
+    <Content Include="frontawesome\svgs\brands\hooli.svg" />
+    <Content Include="frontawesome\svgs\brands\hornbill.svg" />
+    <Content Include="frontawesome\svgs\brands\hotjar.svg" />
+    <Content Include="frontawesome\svgs\brands\houzz.svg" />
+    <Content Include="frontawesome\svgs\brands\html5.svg" />
+    <Content Include="frontawesome\svgs\brands\hubspot.svg" />
+    <Content Include="frontawesome\svgs\brands\ideal.svg" />
+    <Content Include="frontawesome\svgs\brands\imdb.svg" />
+    <Content Include="frontawesome\svgs\brands\instagram-square.svg" />
+    <Content Include="frontawesome\svgs\brands\instagram.svg" />
+    <Content Include="frontawesome\svgs\brands\intercom.svg" />
+    <Content Include="frontawesome\svgs\brands\internet-explorer.svg" />
+    <Content Include="frontawesome\svgs\brands\invision.svg" />
+    <Content Include="frontawesome\svgs\brands\ioxhost.svg" />
+    <Content Include="frontawesome\svgs\brands\itch-io.svg" />
+    <Content Include="frontawesome\svgs\brands\itunes-note.svg" />
+    <Content Include="frontawesome\svgs\brands\itunes.svg" />
+    <Content Include="frontawesome\svgs\brands\java.svg" />
+    <Content Include="frontawesome\svgs\brands\jedi-order.svg" />
+    <Content Include="frontawesome\svgs\brands\jenkins.svg" />
+    <Content Include="frontawesome\svgs\brands\jira.svg" />
+    <Content Include="frontawesome\svgs\brands\joget.svg" />
+    <Content Include="frontawesome\svgs\brands\joomla.svg" />
+    <Content Include="frontawesome\svgs\brands\js-square.svg" />
+    <Content Include="frontawesome\svgs\brands\js.svg" />
+    <Content Include="frontawesome\svgs\brands\jsfiddle.svg" />
+    <Content Include="frontawesome\svgs\brands\kaggle.svg" />
+    <Content Include="frontawesome\svgs\brands\keybase.svg" />
+    <Content Include="frontawesome\svgs\brands\keycdn.svg" />
+    <Content Include="frontawesome\svgs\brands\kickstarter-k.svg" />
+    <Content Include="frontawesome\svgs\brands\kickstarter.svg" />
+    <Content Include="frontawesome\svgs\brands\korvue.svg" />
+    <Content Include="frontawesome\svgs\brands\laravel.svg" />
+    <Content Include="frontawesome\svgs\brands\lastfm-square.svg" />
+    <Content Include="frontawesome\svgs\brands\lastfm.svg" />
+    <Content Include="frontawesome\svgs\brands\leanpub.svg" />
+    <Content Include="frontawesome\svgs\brands\less.svg" />
+    <Content Include="frontawesome\svgs\brands\line.svg" />
+    <Content Include="frontawesome\svgs\brands\linkedin-in.svg" />
+    <Content Include="frontawesome\svgs\brands\linkedin.svg" />
+    <Content Include="frontawesome\svgs\brands\linode.svg" />
+    <Content Include="frontawesome\svgs\brands\linux.svg" />
+    <Content Include="frontawesome\svgs\brands\lyft.svg" />
+    <Content Include="frontawesome\svgs\brands\magento.svg" />
+    <Content Include="frontawesome\svgs\brands\mailchimp.svg" />
+    <Content Include="frontawesome\svgs\brands\mandalorian.svg" />
+    <Content Include="frontawesome\svgs\brands\markdown.svg" />
+    <Content Include="frontawesome\svgs\brands\mastodon.svg" />
+    <Content Include="frontawesome\svgs\brands\maxcdn.svg" />
+    <Content Include="frontawesome\svgs\brands\mdb.svg" />
+    <Content Include="frontawesome\svgs\brands\medapps.svg" />
+    <Content Include="frontawesome\svgs\brands\medium-m.svg" />
+    <Content Include="frontawesome\svgs\brands\medium.svg" />
+    <Content Include="frontawesome\svgs\brands\medrt.svg" />
+    <Content Include="frontawesome\svgs\brands\meetup.svg" />
+    <Content Include="frontawesome\svgs\brands\megaport.svg" />
+    <Content Include="frontawesome\svgs\brands\mendeley.svg" />
+    <Content Include="frontawesome\svgs\brands\microblog.svg" />
+    <Content Include="frontawesome\svgs\brands\microsoft.svg" />
+    <Content Include="frontawesome\svgs\brands\mix.svg" />
+    <Content Include="frontawesome\svgs\brands\mixcloud.svg" />
+    <Content Include="frontawesome\svgs\brands\mixer.svg" />
+    <Content Include="frontawesome\svgs\brands\mizuni.svg" />
+    <Content Include="frontawesome\svgs\brands\modx.svg" />
+    <Content Include="frontawesome\svgs\brands\monero.svg" />
+    <Content Include="frontawesome\svgs\brands\napster.svg" />
+    <Content Include="frontawesome\svgs\brands\neos.svg" />
+    <Content Include="frontawesome\svgs\brands\nimblr.svg" />
+    <Content Include="frontawesome\svgs\brands\node-js.svg" />
+    <Content Include="frontawesome\svgs\brands\node.svg" />
+    <Content Include="frontawesome\svgs\brands\npm.svg" />
+    <Content Include="frontawesome\svgs\brands\ns8.svg" />
+    <Content Include="frontawesome\svgs\brands\nutritionix.svg" />
+    <Content Include="frontawesome\svgs\brands\odnoklassniki-square.svg" />
+    <Content Include="frontawesome\svgs\brands\odnoklassniki.svg" />
+    <Content Include="frontawesome\svgs\brands\old-republic.svg" />
+    <Content Include="frontawesome\svgs\brands\opencart.svg" />
+    <Content Include="frontawesome\svgs\brands\openid.svg" />
+    <Content Include="frontawesome\svgs\brands\opera.svg" />
+    <Content Include="frontawesome\svgs\brands\optin-monster.svg" />
+    <Content Include="frontawesome\svgs\brands\orcid.svg" />
+    <Content Include="frontawesome\svgs\brands\osi.svg" />
+    <Content Include="frontawesome\svgs\brands\page4.svg" />
+    <Content Include="frontawesome\svgs\brands\pagelines.svg" />
+    <Content Include="frontawesome\svgs\brands\palfed.svg" />
+    <Content Include="frontawesome\svgs\brands\patreon.svg" />
+    <Content Include="frontawesome\svgs\brands\paypal.svg" />
+    <Content Include="frontawesome\svgs\brands\penny-arcade.svg" />
+    <Content Include="frontawesome\svgs\brands\periscope.svg" />
+    <Content Include="frontawesome\svgs\brands\phabricator.svg" />
+    <Content Include="frontawesome\svgs\brands\phoenix-framework.svg" />
+    <Content Include="frontawesome\svgs\brands\phoenix-squadron.svg" />
+    <Content Include="frontawesome\svgs\brands\php.svg" />
+    <Content Include="frontawesome\svgs\brands\pied-piper-alt.svg" />
+    <Content Include="frontawesome\svgs\brands\pied-piper-hat.svg" />
+    <Content Include="frontawesome\svgs\brands\pied-piper-pp.svg" />
+    <Content Include="frontawesome\svgs\brands\pied-piper-square.svg" />
+    <Content Include="frontawesome\svgs\brands\pied-piper.svg" />
+    <Content Include="frontawesome\svgs\brands\pinterest-p.svg" />
+    <Content Include="frontawesome\svgs\brands\pinterest-square.svg" />
+    <Content Include="frontawesome\svgs\brands\pinterest.svg" />
+    <Content Include="frontawesome\svgs\brands\playstation.svg" />
+    <Content Include="frontawesome\svgs\brands\product-hunt.svg" />
+    <Content Include="frontawesome\svgs\brands\pushed.svg" />
+    <Content Include="frontawesome\svgs\brands\python.svg" />
+    <Content Include="frontawesome\svgs\brands\qq.svg" />
+    <Content Include="frontawesome\svgs\brands\quinscape.svg" />
+    <Content Include="frontawesome\svgs\brands\quora.svg" />
+    <Content Include="frontawesome\svgs\brands\r-project.svg" />
+    <Content Include="frontawesome\svgs\brands\raspberry-pi.svg" />
+    <Content Include="frontawesome\svgs\brands\ravelry.svg" />
+    <Content Include="frontawesome\svgs\brands\react.svg" />
+    <Content Include="frontawesome\svgs\brands\reacteurope.svg" />
+    <Content Include="frontawesome\svgs\brands\readme.svg" />
+    <Content Include="frontawesome\svgs\brands\rebel.svg" />
+    <Content Include="frontawesome\svgs\brands\red-river.svg" />
+    <Content Include="frontawesome\svgs\brands\reddit-alien.svg" />
+    <Content Include="frontawesome\svgs\brands\reddit-square.svg" />
+    <Content Include="frontawesome\svgs\brands\reddit.svg" />
+    <Content Include="frontawesome\svgs\brands\redhat.svg" />
+    <Content Include="frontawesome\svgs\brands\renren.svg" />
+    <Content Include="frontawesome\svgs\brands\replyd.svg" />
+    <Content Include="frontawesome\svgs\brands\researchgate.svg" />
+    <Content Include="frontawesome\svgs\brands\resolving.svg" />
+    <Content Include="frontawesome\svgs\brands\rev.svg" />
+    <Content Include="frontawesome\svgs\brands\rocketchat.svg" />
+    <Content Include="frontawesome\svgs\brands\rockrms.svg" />
+    <Content Include="frontawesome\svgs\brands\rust.svg" />
+    <Content Include="frontawesome\svgs\brands\safari.svg" />
+    <Content Include="frontawesome\svgs\brands\salesforce.svg" />
+    <Content Include="frontawesome\svgs\brands\sass.svg" />
+    <Content Include="frontawesome\svgs\brands\schlix.svg" />
+    <Content Include="frontawesome\svgs\brands\scribd.svg" />
+    <Content Include="frontawesome\svgs\brands\searchengin.svg" />
+    <Content Include="frontawesome\svgs\brands\sellcast.svg" />
+    <Content Include="frontawesome\svgs\brands\sellsy.svg" />
+    <Content Include="frontawesome\svgs\brands\servicestack.svg" />
+    <Content Include="frontawesome\svgs\brands\shirtsinbulk.svg" />
+    <Content Include="frontawesome\svgs\brands\shopify.svg" />
+    <Content Include="frontawesome\svgs\brands\shopware.svg" />
+    <Content Include="frontawesome\svgs\brands\simplybuilt.svg" />
+    <Content Include="frontawesome\svgs\brands\sistrix.svg" />
+    <Content Include="frontawesome\svgs\brands\sith.svg" />
+    <Content Include="frontawesome\svgs\brands\sketch.svg" />
+    <Content Include="frontawesome\svgs\brands\skyatlas.svg" />
+    <Content Include="frontawesome\svgs\brands\skype.svg" />
+    <Content Include="frontawesome\svgs\brands\slack-hash.svg" />
+    <Content Include="frontawesome\svgs\brands\slack.svg" />
+    <Content Include="frontawesome\svgs\brands\slideshare.svg" />
+    <Content Include="frontawesome\svgs\brands\snapchat-ghost.svg" />
+    <Content Include="frontawesome\svgs\brands\snapchat-square.svg" />
+    <Content Include="frontawesome\svgs\brands\snapchat.svg" />
+    <Content Include="frontawesome\svgs\brands\soundcloud.svg" />
+    <Content Include="frontawesome\svgs\brands\sourcetree.svg" />
+    <Content Include="frontawesome\svgs\brands\speakap.svg" />
+    <Content Include="frontawesome\svgs\brands\speaker-deck.svg" />
+    <Content Include="frontawesome\svgs\brands\spotify.svg" />
+    <Content Include="frontawesome\svgs\brands\squarespace.svg" />
+    <Content Include="frontawesome\svgs\brands\stack-exchange.svg" />
+    <Content Include="frontawesome\svgs\brands\stack-overflow.svg" />
+    <Content Include="frontawesome\svgs\brands\stackpath.svg" />
+    <Content Include="frontawesome\svgs\brands\staylinked.svg" />
+    <Content Include="frontawesome\svgs\brands\steam-square.svg" />
+    <Content Include="frontawesome\svgs\brands\steam-symbol.svg" />
+    <Content Include="frontawesome\svgs\brands\steam.svg" />
+    <Content Include="frontawesome\svgs\brands\sticker-mule.svg" />
+    <Content Include="frontawesome\svgs\brands\strava.svg" />
+    <Content Include="frontawesome\svgs\brands\stripe-s.svg" />
+    <Content Include="frontawesome\svgs\brands\stripe.svg" />
+    <Content Include="frontawesome\svgs\brands\studiovinari.svg" />
+    <Content Include="frontawesome\svgs\brands\stumbleupon-circle.svg" />
+    <Content Include="frontawesome\svgs\brands\stumbleupon.svg" />
+    <Content Include="frontawesome\svgs\brands\superpowers.svg" />
+    <Content Include="frontawesome\svgs\brands\supple.svg" />
+    <Content Include="frontawesome\svgs\brands\suse.svg" />
+    <Content Include="frontawesome\svgs\brands\swift.svg" />
+    <Content Include="frontawesome\svgs\brands\symfony.svg" />
+    <Content Include="frontawesome\svgs\brands\teamspeak.svg" />
+    <Content Include="frontawesome\svgs\brands\telegram-plane.svg" />
+    <Content Include="frontawesome\svgs\brands\telegram.svg" />
+    <Content Include="frontawesome\svgs\brands\tencent-weibo.svg" />
+    <Content Include="frontawesome\svgs\brands\the-red-yeti.svg" />
+    <Content Include="frontawesome\svgs\brands\themeco.svg" />
+    <Content Include="frontawesome\svgs\brands\themeisle.svg" />
+    <Content Include="frontawesome\svgs\brands\think-peaks.svg" />
+    <Content Include="frontawesome\svgs\brands\tiktok.svg" />
+    <Content Include="frontawesome\svgs\brands\trade-federation.svg" />
+    <Content Include="frontawesome\svgs\brands\trello.svg" />
+    <Content Include="frontawesome\svgs\brands\tripadvisor.svg" />
+    <Content Include="frontawesome\svgs\brands\tumblr-square.svg" />
+    <Content Include="frontawesome\svgs\brands\tumblr.svg" />
+    <Content Include="frontawesome\svgs\brands\twitch.svg" />
+    <Content Include="frontawesome\svgs\brands\twitter-square.svg" />
+    <Content Include="frontawesome\svgs\brands\twitter.svg" />
+    <Content Include="frontawesome\svgs\brands\typo3.svg" />
+    <Content Include="frontawesome\svgs\brands\uber.svg" />
+    <Content Include="frontawesome\svgs\brands\ubuntu.svg" />
+    <Content Include="frontawesome\svgs\brands\uikit.svg" />
+    <Content Include="frontawesome\svgs\brands\umbraco.svg" />
+    <Content Include="frontawesome\svgs\brands\uniregistry.svg" />
+    <Content Include="frontawesome\svgs\brands\unity.svg" />
+    <Content Include="frontawesome\svgs\brands\unsplash.svg" />
+    <Content Include="frontawesome\svgs\brands\untappd.svg" />
+    <Content Include="frontawesome\svgs\brands\ups.svg" />
+    <Content Include="frontawesome\svgs\brands\usb.svg" />
+    <Content Include="frontawesome\svgs\brands\usps.svg" />
+    <Content Include="frontawesome\svgs\brands\ussunnah.svg" />
+    <Content Include="frontawesome\svgs\brands\vaadin.svg" />
+    <Content Include="frontawesome\svgs\brands\viacoin.svg" />
+    <Content Include="frontawesome\svgs\brands\viadeo-square.svg" />
+    <Content Include="frontawesome\svgs\brands\viadeo.svg" />
+    <Content Include="frontawesome\svgs\brands\viber.svg" />
+    <Content Include="frontawesome\svgs\brands\vimeo-square.svg" />
+    <Content Include="frontawesome\svgs\brands\vimeo-v.svg" />
+    <Content Include="frontawesome\svgs\brands\vimeo.svg" />
+    <Content Include="frontawesome\svgs\brands\vine.svg" />
+    <Content Include="frontawesome\svgs\brands\vk.svg" />
+    <Content Include="frontawesome\svgs\brands\vnv.svg" />
+    <Content Include="frontawesome\svgs\brands\vuejs.svg" />
+    <Content Include="frontawesome\svgs\brands\waze.svg" />
+    <Content Include="frontawesome\svgs\brands\weebly.svg" />
+    <Content Include="frontawesome\svgs\brands\weibo.svg" />
+    <Content Include="frontawesome\svgs\brands\weixin.svg" />
+    <Content Include="frontawesome\svgs\brands\whatsapp-square.svg" />
+    <Content Include="frontawesome\svgs\brands\whatsapp.svg" />
+    <Content Include="frontawesome\svgs\brands\whmcs.svg" />
+    <Content Include="frontawesome\svgs\brands\wikipedia-w.svg" />
+    <Content Include="frontawesome\svgs\brands\windows.svg" />
+    <Content Include="frontawesome\svgs\brands\wix.svg" />
+    <Content Include="frontawesome\svgs\brands\wizards-of-the-coast.svg" />
+    <Content Include="frontawesome\svgs\brands\wolf-pack-battalion.svg" />
+    <Content Include="frontawesome\svgs\brands\wordpress-simple.svg" />
+    <Content Include="frontawesome\svgs\brands\wordpress.svg" />
+    <Content Include="frontawesome\svgs\brands\wpbeginner.svg" />
+    <Content Include="frontawesome\svgs\brands\wpexplorer.svg" />
+    <Content Include="frontawesome\svgs\brands\wpforms.svg" />
+    <Content Include="frontawesome\svgs\brands\wpressr.svg" />
+    <Content Include="frontawesome\svgs\brands\xbox.svg" />
+    <Content Include="frontawesome\svgs\brands\xing-square.svg" />
+    <Content Include="frontawesome\svgs\brands\xing.svg" />
+    <Content Include="frontawesome\svgs\brands\y-combinator.svg" />
+    <Content Include="frontawesome\svgs\brands\yahoo.svg" />
+    <Content Include="frontawesome\svgs\brands\yammer.svg" />
+    <Content Include="frontawesome\svgs\brands\yandex-international.svg" />
+    <Content Include="frontawesome\svgs\brands\yandex.svg" />
+    <Content Include="frontawesome\svgs\brands\yarn.svg" />
+    <Content Include="frontawesome\svgs\brands\yelp.svg" />
+    <Content Include="frontawesome\svgs\brands\yoast.svg" />
+    <Content Include="frontawesome\svgs\brands\youtube-square.svg" />
+    <Content Include="frontawesome\svgs\brands\youtube.svg" />
+    <Content Include="frontawesome\svgs\brands\zhihu.svg" />
+    <Content Include="frontawesome\svgs\regular\address-book.svg" />
+    <Content Include="frontawesome\svgs\regular\address-card.svg" />
+    <Content Include="frontawesome\svgs\regular\angry.svg" />
+    <Content Include="frontawesome\svgs\regular\arrow-alt-circle-down.svg" />
+    <Content Include="frontawesome\svgs\regular\arrow-alt-circle-left.svg" />
+    <Content Include="frontawesome\svgs\regular\arrow-alt-circle-right.svg" />
+    <Content Include="frontawesome\svgs\regular\arrow-alt-circle-up.svg" />
+    <Content Include="frontawesome\svgs\regular\bell-slash.svg" />
+    <Content Include="frontawesome\svgs\regular\bell.svg" />
+    <Content Include="frontawesome\svgs\regular\bookmark.svg" />
+    <Content Include="frontawesome\svgs\regular\building.svg" />
+    <Content Include="frontawesome\svgs\regular\calendar-alt.svg" />
+    <Content Include="frontawesome\svgs\regular\calendar-check.svg" />
+    <Content Include="frontawesome\svgs\regular\calendar-minus.svg" />
+    <Content Include="frontawesome\svgs\regular\calendar-plus.svg" />
+    <Content Include="frontawesome\svgs\regular\calendar-times.svg" />
+    <Content Include="frontawesome\svgs\regular\calendar.svg" />
+    <Content Include="frontawesome\svgs\regular\caret-square-down.svg" />
+    <Content Include="frontawesome\svgs\regular\caret-square-left.svg" />
+    <Content Include="frontawesome\svgs\regular\caret-square-right.svg" />
+    <Content Include="frontawesome\svgs\regular\caret-square-up.svg" />
+    <Content Include="frontawesome\svgs\regular\chart-bar.svg" />
+    <Content Include="frontawesome\svgs\regular\check-circle.svg" />
+    <Content Include="frontawesome\svgs\regular\check-square.svg" />
+    <Content Include="frontawesome\svgs\regular\circle.svg" />
+    <Content Include="frontawesome\svgs\regular\clipboard.svg" />
+    <Content Include="frontawesome\svgs\regular\clock.svg" />
+    <Content Include="frontawesome\svgs\regular\clone.svg" />
+    <Content Include="frontawesome\svgs\regular\closed-captioning.svg" />
+    <Content Include="frontawesome\svgs\regular\comment-alt.svg" />
+    <Content Include="frontawesome\svgs\regular\comment-dots.svg" />
+    <Content Include="frontawesome\svgs\regular\comment.svg" />
+    <Content Include="frontawesome\svgs\regular\comments.svg" />
+    <Content Include="frontawesome\svgs\regular\compass.svg" />
+    <Content Include="frontawesome\svgs\regular\copy.svg" />
+    <Content Include="frontawesome\svgs\regular\copyright.svg" />
+    <Content Include="frontawesome\svgs\regular\credit-card.svg" />
+    <Content Include="frontawesome\svgs\regular\dizzy.svg" />
+    <Content Include="frontawesome\svgs\regular\dot-circle.svg" />
+    <Content Include="frontawesome\svgs\regular\edit.svg" />
+    <Content Include="frontawesome\svgs\regular\envelope-open.svg" />
+    <Content Include="frontawesome\svgs\regular\envelope.svg" />
+    <Content Include="frontawesome\svgs\regular\eye-slash.svg" />
+    <Content Include="frontawesome\svgs\regular\eye.svg" />
+    <Content Include="frontawesome\svgs\regular\file-alt.svg" />
+    <Content Include="frontawesome\svgs\regular\file-archive.svg" />
+    <Content Include="frontawesome\svgs\regular\file-audio.svg" />
+    <Content Include="frontawesome\svgs\regular\file-code.svg" />
+    <Content Include="frontawesome\svgs\regular\file-excel.svg" />
+    <Content Include="frontawesome\svgs\regular\file-image.svg" />
+    <Content Include="frontawesome\svgs\regular\file-pdf.svg" />
+    <Content Include="frontawesome\svgs\regular\file-powerpoint.svg" />
+    <Content Include="frontawesome\svgs\regular\file-video.svg" />
+    <Content Include="frontawesome\svgs\regular\file-word.svg" />
+    <Content Include="frontawesome\svgs\regular\file.svg" />
+    <Content Include="frontawesome\svgs\regular\flag.svg" />
+    <Content Include="frontawesome\svgs\regular\flushed.svg" />
+    <Content Include="frontawesome\svgs\regular\folder-open.svg" />
+    <Content Include="frontawesome\svgs\regular\folder.svg" />
+    <Content Include="frontawesome\svgs\regular\font-awesome-logo-full.svg" />
+    <Content Include="frontawesome\svgs\regular\frown-open.svg" />
+    <Content Include="frontawesome\svgs\regular\frown.svg" />
+    <Content Include="frontawesome\svgs\regular\futbol.svg" />
+    <Content Include="frontawesome\svgs\regular\gem.svg" />
+    <Content Include="frontawesome\svgs\regular\grimace.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-alt.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-beam-sweat.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-beam.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-hearts.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-squint-tears.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-squint.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-stars.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-tears.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-tongue-squint.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-tongue-wink.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-tongue.svg" />
+    <Content Include="frontawesome\svgs\regular\grin-wink.svg" />
+    <Content Include="frontawesome\svgs\regular\grin.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-lizard.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-paper.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-peace.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-point-down.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-point-left.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-point-right.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-point-up.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-pointer.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-rock.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-scissors.svg" />
+    <Content Include="frontawesome\svgs\regular\hand-spock.svg" />
+    <Content Include="frontawesome\svgs\regular\handshake.svg" />
+    <Content Include="frontawesome\svgs\regular\hdd.svg" />
+    <Content Include="frontawesome\svgs\regular\heart.svg" />
+    <Content Include="frontawesome\svgs\regular\hospital.svg" />
+    <Content Include="frontawesome\svgs\regular\hourglass.svg" />
+    <Content Include="frontawesome\svgs\regular\id-badge.svg" />
+    <Content Include="frontawesome\svgs\regular\id-card.svg" />
+    <Content Include="frontawesome\svgs\regular\image.svg" />
+    <Content Include="frontawesome\svgs\regular\images.svg" />
+    <Content Include="frontawesome\svgs\regular\keyboard.svg" />
+    <Content Include="frontawesome\svgs\regular\kiss-beam.svg" />
+    <Content Include="frontawesome\svgs\regular\kiss-wink-heart.svg" />
+    <Content Include="frontawesome\svgs\regular\kiss.svg" />
+    <Content Include="frontawesome\svgs\regular\laugh-beam.svg" />
+    <Content Include="frontawesome\svgs\regular\laugh-squint.svg" />
+    <Content Include="frontawesome\svgs\regular\laugh-wink.svg" />
+    <Content Include="frontawesome\svgs\regular\laugh.svg" />
+    <Content Include="frontawesome\svgs\regular\lemon.svg" />
+    <Content Include="frontawesome\svgs\regular\life-ring.svg" />
+    <Content Include="frontawesome\svgs\regular\lightbulb.svg" />
+    <Content Include="frontawesome\svgs\regular\list-alt.svg" />
+    <Content Include="frontawesome\svgs\regular\map.svg" />
+    <Content Include="frontawesome\svgs\regular\meh-blank.svg" />
+    <Content Include="frontawesome\svgs\regular\meh-rolling-eyes.svg" />
+    <Content Include="frontawesome\svgs\regular\meh.svg" />
+    <Content Include="frontawesome\svgs\regular\minus-square.svg" />
+    <Content Include="frontawesome\svgs\regular\money-bill-alt.svg" />
+    <Content Include="frontawesome\svgs\regular\moon.svg" />
+    <Content Include="frontawesome\svgs\regular\newspaper.svg" />
+    <Content Include="frontawesome\svgs\regular\object-group.svg" />
+    <Content Include="frontawesome\svgs\regular\object-ungroup.svg" />
+    <Content Include="frontawesome\svgs\regular\paper-plane.svg" />
+    <Content Include="frontawesome\svgs\regular\pause-circle.svg" />
+    <Content Include="frontawesome\svgs\regular\play-circle.svg" />
+    <Content Include="frontawesome\svgs\regular\plus-square.svg" />
+    <Content Include="frontawesome\svgs\regular\question-circle.svg" />
+    <Content Include="frontawesome\svgs\regular\registered.svg" />
+    <Content Include="frontawesome\svgs\regular\sad-cry.svg" />
+    <Content Include="frontawesome\svgs\regular\sad-tear.svg" />
+    <Content Include="frontawesome\svgs\regular\save.svg" />
+    <Content Include="frontawesome\svgs\regular\share-square.svg" />
+    <Content Include="frontawesome\svgs\regular\smile-beam.svg" />
+    <Content Include="frontawesome\svgs\regular\smile-wink.svg" />
+    <Content Include="frontawesome\svgs\regular\smile.svg" />
+    <Content Include="frontawesome\svgs\regular\snowflake.svg" />
+    <Content Include="frontawesome\svgs\regular\square.svg" />
+    <Content Include="frontawesome\svgs\regular\star-half.svg" />
+    <Content Include="frontawesome\svgs\regular\star.svg" />
+    <Content Include="frontawesome\svgs\regular\sticky-note.svg" />
+    <Content Include="frontawesome\svgs\regular\stop-circle.svg" />
+    <Content Include="frontawesome\svgs\regular\sun.svg" />
+    <Content Include="frontawesome\svgs\regular\surprise.svg" />
+    <Content Include="frontawesome\svgs\regular\thumbs-down.svg" />
+    <Content Include="frontawesome\svgs\regular\thumbs-up.svg" />
+    <Content Include="frontawesome\svgs\regular\times-circle.svg" />
+    <Content Include="frontawesome\svgs\regular\tired.svg" />
+    <Content Include="frontawesome\svgs\regular\trash-alt.svg" />
+    <Content Include="frontawesome\svgs\regular\user-circle.svg" />
+    <Content Include="frontawesome\svgs\regular\user.svg" />
+    <Content Include="frontawesome\svgs\regular\window-close.svg" />
+    <Content Include="frontawesome\svgs\regular\window-maximize.svg" />
+    <Content Include="frontawesome\svgs\regular\window-minimize.svg" />
+    <Content Include="frontawesome\svgs\regular\window-restore.svg" />
+    <Content Include="frontawesome\svgs\solid\ad.svg" />
+    <Content Include="frontawesome\svgs\solid\address-book.svg" />
+    <Content Include="frontawesome\svgs\solid\address-card.svg" />
+    <Content Include="frontawesome\svgs\solid\adjust.svg" />
+    <Content Include="frontawesome\svgs\solid\air-freshener.svg" />
+    <Content Include="frontawesome\svgs\solid\align-center.svg" />
+    <Content Include="frontawesome\svgs\solid\align-justify.svg" />
+    <Content Include="frontawesome\svgs\solid\align-left.svg" />
+    <Content Include="frontawesome\svgs\solid\align-right.svg" />
+    <Content Include="frontawesome\svgs\solid\allergies.svg" />
+    <Content Include="frontawesome\svgs\solid\ambulance.svg" />
+    <Content Include="frontawesome\svgs\solid\american-sign-language-interpreting.svg" />
+    <Content Include="frontawesome\svgs\solid\anchor.svg" />
+    <Content Include="frontawesome\svgs\solid\angle-double-down.svg" />
+    <Content Include="frontawesome\svgs\solid\angle-double-left.svg" />
+    <Content Include="frontawesome\svgs\solid\angle-double-right.svg" />
+    <Content Include="frontawesome\svgs\solid\angle-double-up.svg" />
+    <Content Include="frontawesome\svgs\solid\angle-down.svg" />
+    <Content Include="frontawesome\svgs\solid\angle-left.svg" />
+    <Content Include="frontawesome\svgs\solid\angle-right.svg" />
+    <Content Include="frontawesome\svgs\solid\angle-up.svg" />
+    <Content Include="frontawesome\svgs\solid\angry.svg" />
+    <Content Include="frontawesome\svgs\solid\ankh.svg" />
+    <Content Include="frontawesome\svgs\solid\apple-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\archive.svg" />
+    <Content Include="frontawesome\svgs\solid\archway.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-alt-circle-down.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-alt-circle-left.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-alt-circle-right.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-alt-circle-up.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-circle-down.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-circle-left.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-circle-right.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-circle-up.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-down.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-left.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-right.svg" />
+    <Content Include="frontawesome\svgs\solid\arrow-up.svg" />
+    <Content Include="frontawesome\svgs\solid\arrows-alt-h.svg" />
+    <Content Include="frontawesome\svgs\solid\arrows-alt-v.svg" />
+    <Content Include="frontawesome\svgs\solid\arrows-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\assistive-listening-systems.svg" />
+    <Content Include="frontawesome\svgs\solid\asterisk.svg" />
+    <Content Include="frontawesome\svgs\solid\at.svg" />
+    <Content Include="frontawesome\svgs\solid\atlas.svg" />
+    <Content Include="frontawesome\svgs\solid\atom.svg" />
+    <Content Include="frontawesome\svgs\solid\audio-description.svg" />
+    <Content Include="frontawesome\svgs\solid\award.svg" />
+    <Content Include="frontawesome\svgs\solid\baby-carriage.svg" />
+    <Content Include="frontawesome\svgs\solid\baby.svg" />
+    <Content Include="frontawesome\svgs\solid\backspace.svg" />
+    <Content Include="frontawesome\svgs\solid\backward.svg" />
+    <Content Include="frontawesome\svgs\solid\bacon.svg" />
+    <Content Include="frontawesome\svgs\solid\bacteria.svg" />
+    <Content Include="frontawesome\svgs\solid\bacterium.svg" />
+    <Content Include="frontawesome\svgs\solid\bahai.svg" />
+    <Content Include="frontawesome\svgs\solid\balance-scale-left.svg" />
+    <Content Include="frontawesome\svgs\solid\balance-scale-right.svg" />
+    <Content Include="frontawesome\svgs\solid\balance-scale.svg" />
+    <Content Include="frontawesome\svgs\solid\ban.svg" />
+    <Content Include="frontawesome\svgs\solid\band-aid.svg" />
+    <Content Include="frontawesome\svgs\solid\barcode.svg" />
+    <Content Include="frontawesome\svgs\solid\bars.svg" />
+    <Content Include="frontawesome\svgs\solid\baseball-ball.svg" />
+    <Content Include="frontawesome\svgs\solid\basketball-ball.svg" />
+    <Content Include="frontawesome\svgs\solid\bath.svg" />
+    <Content Include="frontawesome\svgs\solid\battery-empty.svg" />
+    <Content Include="frontawesome\svgs\solid\battery-full.svg" />
+    <Content Include="frontawesome\svgs\solid\battery-half.svg" />
+    <Content Include="frontawesome\svgs\solid\battery-quarter.svg" />
+    <Content Include="frontawesome\svgs\solid\battery-three-quarters.svg" />
+    <Content Include="frontawesome\svgs\solid\bed.svg" />
+    <Content Include="frontawesome\svgs\solid\beer.svg" />
+    <Content Include="frontawesome\svgs\solid\bell-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\bell.svg" />
+    <Content Include="frontawesome\svgs\solid\bezier-curve.svg" />
+    <Content Include="frontawesome\svgs\solid\bible.svg" />
+    <Content Include="frontawesome\svgs\solid\bicycle.svg" />
+    <Content Include="frontawesome\svgs\solid\biking.svg" />
+    <Content Include="frontawesome\svgs\solid\binoculars.svg" />
+    <Content Include="frontawesome\svgs\solid\biohazard.svg" />
+    <Content Include="frontawesome\svgs\solid\birthday-cake.svg" />
+    <Content Include="frontawesome\svgs\solid\blender-phone.svg" />
+    <Content Include="frontawesome\svgs\solid\blender.svg" />
+    <Content Include="frontawesome\svgs\solid\blind.svg" />
+    <Content Include="frontawesome\svgs\solid\blog.svg" />
+    <Content Include="frontawesome\svgs\solid\bold.svg" />
+    <Content Include="frontawesome\svgs\solid\bolt.svg" />
+    <Content Include="frontawesome\svgs\solid\bomb.svg" />
+    <Content Include="frontawesome\svgs\solid\bone.svg" />
+    <Content Include="frontawesome\svgs\solid\bong.svg" />
+    <Content Include="frontawesome\svgs\solid\book-dead.svg" />
+    <Content Include="frontawesome\svgs\solid\book-medical.svg" />
+    <Content Include="frontawesome\svgs\solid\book-open.svg" />
+    <Content Include="frontawesome\svgs\solid\book-reader.svg" />
+    <Content Include="frontawesome\svgs\solid\book.svg" />
+    <Content Include="frontawesome\svgs\solid\bookmark.svg" />
+    <Content Include="frontawesome\svgs\solid\border-all.svg" />
+    <Content Include="frontawesome\svgs\solid\border-none.svg" />
+    <Content Include="frontawesome\svgs\solid\border-style.svg" />
+    <Content Include="frontawesome\svgs\solid\bowling-ball.svg" />
+    <Content Include="frontawesome\svgs\solid\box-open.svg" />
+    <Content Include="frontawesome\svgs\solid\box-tissue.svg" />
+    <Content Include="frontawesome\svgs\solid\box.svg" />
+    <Content Include="frontawesome\svgs\solid\boxes.svg" />
+    <Content Include="frontawesome\svgs\solid\braille.svg" />
+    <Content Include="frontawesome\svgs\solid\brain.svg" />
+    <Content Include="frontawesome\svgs\solid\bread-slice.svg" />
+    <Content Include="frontawesome\svgs\solid\briefcase-medical.svg" />
+    <Content Include="frontawesome\svgs\solid\briefcase.svg" />
+    <Content Include="frontawesome\svgs\solid\broadcast-tower.svg" />
+    <Content Include="frontawesome\svgs\solid\broom.svg" />
+    <Content Include="frontawesome\svgs\solid\brush.svg" />
+    <Content Include="frontawesome\svgs\solid\bug.svg" />
+    <Content Include="frontawesome\svgs\solid\building.svg" />
+    <Content Include="frontawesome\svgs\solid\bullhorn.svg" />
+    <Content Include="frontawesome\svgs\solid\bullseye.svg" />
+    <Content Include="frontawesome\svgs\solid\burn.svg" />
+    <Content Include="frontawesome\svgs\solid\bus-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\bus.svg" />
+    <Content Include="frontawesome\svgs\solid\business-time.svg" />
+    <Content Include="frontawesome\svgs\solid\calculator.svg" />
+    <Content Include="frontawesome\svgs\solid\calendar-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\calendar-check.svg" />
+    <Content Include="frontawesome\svgs\solid\calendar-day.svg" />
+    <Content Include="frontawesome\svgs\solid\calendar-minus.svg" />
+    <Content Include="frontawesome\svgs\solid\calendar-plus.svg" />
+    <Content Include="frontawesome\svgs\solid\calendar-times.svg" />
+    <Content Include="frontawesome\svgs\solid\calendar-week.svg" />
+    <Content Include="frontawesome\svgs\solid\calendar.svg" />
+    <Content Include="frontawesome\svgs\solid\camera-retro.svg" />
+    <Content Include="frontawesome\svgs\solid\camera.svg" />
+    <Content Include="frontawesome\svgs\solid\campground.svg" />
+    <Content Include="frontawesome\svgs\solid\candy-cane.svg" />
+    <Content Include="frontawesome\svgs\solid\cannabis.svg" />
+    <Content Include="frontawesome\svgs\solid\capsules.svg" />
+    <Content Include="frontawesome\svgs\solid\car-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\car-battery.svg" />
+    <Content Include="frontawesome\svgs\solid\car-crash.svg" />
+    <Content Include="frontawesome\svgs\solid\car-side.svg" />
+    <Content Include="frontawesome\svgs\solid\car.svg" />
+    <Content Include="frontawesome\svgs\solid\caravan.svg" />
+    <Content Include="frontawesome\svgs\solid\caret-down.svg" />
+    <Content Include="frontawesome\svgs\solid\caret-left.svg" />
+    <Content Include="frontawesome\svgs\solid\caret-right.svg" />
+    <Content Include="frontawesome\svgs\solid\caret-square-down.svg" />
+    <Content Include="frontawesome\svgs\solid\caret-square-left.svg" />
+    <Content Include="frontawesome\svgs\solid\caret-square-right.svg" />
+    <Content Include="frontawesome\svgs\solid\caret-square-up.svg" />
+    <Content Include="frontawesome\svgs\solid\caret-up.svg" />
+    <Content Include="frontawesome\svgs\solid\carrot.svg" />
+    <Content Include="frontawesome\svgs\solid\cart-arrow-down.svg" />
+    <Content Include="frontawesome\svgs\solid\cart-plus.svg" />
+    <Content Include="frontawesome\svgs\solid\cash-register.svg" />
+    <Content Include="frontawesome\svgs\solid\cat.svg" />
+    <Content Include="frontawesome\svgs\solid\certificate.svg" />
+    <Content Include="frontawesome\svgs\solid\chair.svg" />
+    <Content Include="frontawesome\svgs\solid\chalkboard-teacher.svg" />
+    <Content Include="frontawesome\svgs\solid\chalkboard.svg" />
+    <Content Include="frontawesome\svgs\solid\charging-station.svg" />
+    <Content Include="frontawesome\svgs\solid\chart-area.svg" />
+    <Content Include="frontawesome\svgs\solid\chart-bar.svg" />
+    <Content Include="frontawesome\svgs\solid\chart-line.svg" />
+    <Content Include="frontawesome\svgs\solid\chart-pie.svg" />
+    <Content Include="frontawesome\svgs\solid\check-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\check-double.svg" />
+    <Content Include="frontawesome\svgs\solid\check-square.svg" />
+    <Content Include="frontawesome\svgs\solid\check.svg" />
+    <Content Include="frontawesome\svgs\solid\cheese.svg" />
+    <Content Include="frontawesome\svgs\solid\chess-bishop.svg" />
+    <Content Include="frontawesome\svgs\solid\chess-board.svg" />
+    <Content Include="frontawesome\svgs\solid\chess-king.svg" />
+    <Content Include="frontawesome\svgs\solid\chess-knight.svg" />
+    <Content Include="frontawesome\svgs\solid\chess-pawn.svg" />
+    <Content Include="frontawesome\svgs\solid\chess-queen.svg" />
+    <Content Include="frontawesome\svgs\solid\chess-rook.svg" />
+    <Content Include="frontawesome\svgs\solid\chess.svg" />
+    <Content Include="frontawesome\svgs\solid\chevron-circle-down.svg" />
+    <Content Include="frontawesome\svgs\solid\chevron-circle-left.svg" />
+    <Content Include="frontawesome\svgs\solid\chevron-circle-right.svg" />
+    <Content Include="frontawesome\svgs\solid\chevron-circle-up.svg" />
+    <Content Include="frontawesome\svgs\solid\chevron-down.svg" />
+    <Content Include="frontawesome\svgs\solid\chevron-left.svg" />
+    <Content Include="frontawesome\svgs\solid\chevron-right.svg" />
+    <Content Include="frontawesome\svgs\solid\chevron-up.svg" />
+    <Content Include="frontawesome\svgs\solid\child.svg" />
+    <Content Include="frontawesome\svgs\solid\church.svg" />
+    <Content Include="frontawesome\svgs\solid\circle-notch.svg" />
+    <Content Include="frontawesome\svgs\solid\circle.svg" />
+    <Content Include="frontawesome\svgs\solid\city.svg" />
+    <Content Include="frontawesome\svgs\solid\clinic-medical.svg" />
+    <Content Include="frontawesome\svgs\solid\clipboard-check.svg" />
+    <Content Include="frontawesome\svgs\solid\clipboard-list.svg" />
+    <Content Include="frontawesome\svgs\solid\clipboard.svg" />
+    <Content Include="frontawesome\svgs\solid\clock.svg" />
+    <Content Include="frontawesome\svgs\solid\clone.svg" />
+    <Content Include="frontawesome\svgs\solid\closed-captioning.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud-download-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud-meatball.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud-moon-rain.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud-moon.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud-rain.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud-showers-heavy.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud-sun-rain.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud-sun.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud-upload-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\cloud.svg" />
+    <Content Include="frontawesome\svgs\solid\cocktail.svg" />
+    <Content Include="frontawesome\svgs\solid\code-branch.svg" />
+    <Content Include="frontawesome\svgs\solid\code.svg" />
+    <Content Include="frontawesome\svgs\solid\coffee.svg" />
+    <Content Include="frontawesome\svgs\solid\cog.svg" />
+    <Content Include="frontawesome\svgs\solid\cogs.svg" />
+    <Content Include="frontawesome\svgs\solid\coins.svg" />
+    <Content Include="frontawesome\svgs\solid\columns.svg" />
+    <Content Include="frontawesome\svgs\solid\comment-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\comment-dollar.svg" />
+    <Content Include="frontawesome\svgs\solid\comment-dots.svg" />
+    <Content Include="frontawesome\svgs\solid\comment-medical.svg" />
+    <Content Include="frontawesome\svgs\solid\comment-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\comment.svg" />
+    <Content Include="frontawesome\svgs\solid\comments-dollar.svg" />
+    <Content Include="frontawesome\svgs\solid\comments.svg" />
+    <Content Include="frontawesome\svgs\solid\compact-disc.svg" />
+    <Content Include="frontawesome\svgs\solid\compass.svg" />
+    <Content Include="frontawesome\svgs\solid\compress-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\compress-arrows-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\compress.svg" />
+    <Content Include="frontawesome\svgs\solid\concierge-bell.svg" />
+    <Content Include="frontawesome\svgs\solid\cookie-bite.svg" />
+    <Content Include="frontawesome\svgs\solid\cookie.svg" />
+    <Content Include="frontawesome\svgs\solid\copy.svg" />
+    <Content Include="frontawesome\svgs\solid\copyright.svg" />
+    <Content Include="frontawesome\svgs\solid\couch.svg" />
+    <Content Include="frontawesome\svgs\solid\credit-card.svg" />
+    <Content Include="frontawesome\svgs\solid\crop-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\crop.svg" />
+    <Content Include="frontawesome\svgs\solid\cross.svg" />
+    <Content Include="frontawesome\svgs\solid\crosshairs.svg" />
+    <Content Include="frontawesome\svgs\solid\crow.svg" />
+    <Content Include="frontawesome\svgs\solid\crown.svg" />
+    <Content Include="frontawesome\svgs\solid\crutch.svg" />
+    <Content Include="frontawesome\svgs\solid\cube.svg" />
+    <Content Include="frontawesome\svgs\solid\cubes.svg" />
+    <Content Include="frontawesome\svgs\solid\cut.svg" />
+    <Content Include="frontawesome\svgs\solid\database.svg" />
+    <Content Include="frontawesome\svgs\solid\deaf.svg" />
+    <Content Include="frontawesome\svgs\solid\democrat.svg" />
+    <Content Include="frontawesome\svgs\solid\desktop.svg" />
+    <Content Include="frontawesome\svgs\solid\dharmachakra.svg" />
+    <Content Include="frontawesome\svgs\solid\diagnoses.svg" />
+    <Content Include="frontawesome\svgs\solid\dice-d20.svg" />
+    <Content Include="frontawesome\svgs\solid\dice-d6.svg" />
+    <Content Include="frontawesome\svgs\solid\dice-five.svg" />
+    <Content Include="frontawesome\svgs\solid\dice-four.svg" />
+    <Content Include="frontawesome\svgs\solid\dice-one.svg" />
+    <Content Include="frontawesome\svgs\solid\dice-six.svg" />
+    <Content Include="frontawesome\svgs\solid\dice-three.svg" />
+    <Content Include="frontawesome\svgs\solid\dice-two.svg" />
+    <Content Include="frontawesome\svgs\solid\dice.svg" />
+    <Content Include="frontawesome\svgs\solid\digital-tachograph.svg" />
+    <Content Include="frontawesome\svgs\solid\directions.svg" />
+    <Content Include="frontawesome\svgs\solid\disease.svg" />
+    <Content Include="frontawesome\svgs\solid\divide.svg" />
+    <Content Include="frontawesome\svgs\solid\dizzy.svg" />
+    <Content Include="frontawesome\svgs\solid\dna.svg" />
+    <Content Include="frontawesome\svgs\solid\dog.svg" />
+    <Content Include="frontawesome\svgs\solid\dollar-sign.svg" />
+    <Content Include="frontawesome\svgs\solid\dolly-flatbed.svg" />
+    <Content Include="frontawesome\svgs\solid\dolly.svg" />
+    <Content Include="frontawesome\svgs\solid\donate.svg" />
+    <Content Include="frontawesome\svgs\solid\door-closed.svg" />
+    <Content Include="frontawesome\svgs\solid\door-open.svg" />
+    <Content Include="frontawesome\svgs\solid\dot-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\dove.svg" />
+    <Content Include="frontawesome\svgs\solid\download.svg" />
+    <Content Include="frontawesome\svgs\solid\drafting-compass.svg" />
+    <Content Include="frontawesome\svgs\solid\dragon.svg" />
+    <Content Include="frontawesome\svgs\solid\draw-polygon.svg" />
+    <Content Include="frontawesome\svgs\solid\drum-steelpan.svg" />
+    <Content Include="frontawesome\svgs\solid\drum.svg" />
+    <Content Include="frontawesome\svgs\solid\drumstick-bite.svg" />
+    <Content Include="frontawesome\svgs\solid\dumbbell.svg" />
+    <Content Include="frontawesome\svgs\solid\dumpster-fire.svg" />
+    <Content Include="frontawesome\svgs\solid\dumpster.svg" />
+    <Content Include="frontawesome\svgs\solid\dungeon.svg" />
+    <Content Include="frontawesome\svgs\solid\edit.svg" />
+    <Content Include="frontawesome\svgs\solid\egg.svg" />
+    <Content Include="frontawesome\svgs\solid\eject.svg" />
+    <Content Include="frontawesome\svgs\solid\ellipsis-h.svg" />
+    <Content Include="frontawesome\svgs\solid\ellipsis-v.svg" />
+    <Content Include="frontawesome\svgs\solid\envelope-open-text.svg" />
+    <Content Include="frontawesome\svgs\solid\envelope-open.svg" />
+    <Content Include="frontawesome\svgs\solid\envelope-square.svg" />
+    <Content Include="frontawesome\svgs\solid\envelope.svg" />
+    <Content Include="frontawesome\svgs\solid\equals.svg" />
+    <Content Include="frontawesome\svgs\solid\eraser.svg" />
+    <Content Include="frontawesome\svgs\solid\ethernet.svg" />
+    <Content Include="frontawesome\svgs\solid\euro-sign.svg" />
+    <Content Include="frontawesome\svgs\solid\exchange-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\exclamation-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\exclamation-triangle.svg" />
+    <Content Include="frontawesome\svgs\solid\exclamation.svg" />
+    <Content Include="frontawesome\svgs\solid\expand-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\expand-arrows-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\expand.svg" />
+    <Content Include="frontawesome\svgs\solid\external-link-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\external-link-square-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\eye-dropper.svg" />
+    <Content Include="frontawesome\svgs\solid\eye-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\eye.svg" />
+    <Content Include="frontawesome\svgs\solid\fan.svg" />
+    <Content Include="frontawesome\svgs\solid\fast-backward.svg" />
+    <Content Include="frontawesome\svgs\solid\fast-forward.svg" />
+    <Content Include="frontawesome\svgs\solid\faucet.svg" />
+    <Content Include="frontawesome\svgs\solid\fax.svg" />
+    <Content Include="frontawesome\svgs\solid\feather-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\feather.svg" />
+    <Content Include="frontawesome\svgs\solid\female.svg" />
+    <Content Include="frontawesome\svgs\solid\fighter-jet.svg" />
+    <Content Include="frontawesome\svgs\solid\file-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\file-archive.svg" />
+    <Content Include="frontawesome\svgs\solid\file-audio.svg" />
+    <Content Include="frontawesome\svgs\solid\file-code.svg" />
+    <Content Include="frontawesome\svgs\solid\file-contract.svg" />
+    <Content Include="frontawesome\svgs\solid\file-csv.svg" />
+    <Content Include="frontawesome\svgs\solid\file-download.svg" />
+    <Content Include="frontawesome\svgs\solid\file-excel.svg" />
+    <Content Include="frontawesome\svgs\solid\file-export.svg" />
+    <Content Include="frontawesome\svgs\solid\file-image.svg" />
+    <Content Include="frontawesome\svgs\solid\file-import.svg" />
+    <Content Include="frontawesome\svgs\solid\file-invoice-dollar.svg" />
+    <Content Include="frontawesome\svgs\solid\file-invoice.svg" />
+    <Content Include="frontawesome\svgs\solid\file-medical-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\file-medical.svg" />
+    <Content Include="frontawesome\svgs\solid\file-pdf.svg" />
+    <Content Include="frontawesome\svgs\solid\file-powerpoint.svg" />
+    <Content Include="frontawesome\svgs\solid\file-prescription.svg" />
+    <Content Include="frontawesome\svgs\solid\file-signature.svg" />
+    <Content Include="frontawesome\svgs\solid\file-upload.svg" />
+    <Content Include="frontawesome\svgs\solid\file-video.svg" />
+    <Content Include="frontawesome\svgs\solid\file-word.svg" />
+    <Content Include="frontawesome\svgs\solid\file.svg" />
+    <Content Include="frontawesome\svgs\solid\fill-drip.svg" />
+    <Content Include="frontawesome\svgs\solid\fill.svg" />
+    <Content Include="frontawesome\svgs\solid\film.svg" />
+    <Content Include="frontawesome\svgs\solid\filter.svg" />
+    <Content Include="frontawesome\svgs\solid\fingerprint.svg" />
+    <Content Include="frontawesome\svgs\solid\fire-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\fire-extinguisher.svg" />
+    <Content Include="frontawesome\svgs\solid\fire.svg" />
+    <Content Include="frontawesome\svgs\solid\first-aid.svg" />
+    <Content Include="frontawesome\svgs\solid\fish.svg" />
+    <Content Include="frontawesome\svgs\solid\fist-raised.svg" />
+    <Content Include="frontawesome\svgs\solid\flag-checkered.svg" />
+    <Content Include="frontawesome\svgs\solid\flag-usa.svg" />
+    <Content Include="frontawesome\svgs\solid\flag.svg" />
+    <Content Include="frontawesome\svgs\solid\flask.svg" />
+    <Content Include="frontawesome\svgs\solid\flushed.svg" />
+    <Content Include="frontawesome\svgs\solid\folder-minus.svg" />
+    <Content Include="frontawesome\svgs\solid\folder-open.svg" />
+    <Content Include="frontawesome\svgs\solid\folder-plus.svg" />
+    <Content Include="frontawesome\svgs\solid\folder.svg" />
+    <Content Include="frontawesome\svgs\solid\font-awesome-logo-full.svg" />
+    <Content Include="frontawesome\svgs\solid\font.svg" />
+    <Content Include="frontawesome\svgs\solid\football-ball.svg" />
+    <Content Include="frontawesome\svgs\solid\forward.svg" />
+    <Content Include="frontawesome\svgs\solid\frog.svg" />
+    <Content Include="frontawesome\svgs\solid\frown-open.svg" />
+    <Content Include="frontawesome\svgs\solid\frown.svg" />
+    <Content Include="frontawesome\svgs\solid\funnel-dollar.svg" />
+    <Content Include="frontawesome\svgs\solid\futbol.svg" />
+    <Content Include="frontawesome\svgs\solid\gamepad.svg" />
+    <Content Include="frontawesome\svgs\solid\gas-pump.svg" />
+    <Content Include="frontawesome\svgs\solid\gavel.svg" />
+    <Content Include="frontawesome\svgs\solid\gem.svg" />
+    <Content Include="frontawesome\svgs\solid\genderless.svg" />
+    <Content Include="frontawesome\svgs\solid\ghost.svg" />
+    <Content Include="frontawesome\svgs\solid\gift.svg" />
+    <Content Include="frontawesome\svgs\solid\gifts.svg" />
+    <Content Include="frontawesome\svgs\solid\glass-cheers.svg" />
+    <Content Include="frontawesome\svgs\solid\glass-martini-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\glass-martini.svg" />
+    <Content Include="frontawesome\svgs\solid\glass-whiskey.svg" />
+    <Content Include="frontawesome\svgs\solid\glasses.svg" />
+    <Content Include="frontawesome\svgs\solid\globe-africa.svg" />
+    <Content Include="frontawesome\svgs\solid\globe-americas.svg" />
+    <Content Include="frontawesome\svgs\solid\globe-asia.svg" />
+    <Content Include="frontawesome\svgs\solid\globe-europe.svg" />
+    <Content Include="frontawesome\svgs\solid\globe.svg" />
+    <Content Include="frontawesome\svgs\solid\golf-ball.svg" />
+    <Content Include="frontawesome\svgs\solid\gopuram.svg" />
+    <Content Include="frontawesome\svgs\solid\graduation-cap.svg" />
+    <Content Include="frontawesome\svgs\solid\greater-than-equal.svg" />
+    <Content Include="frontawesome\svgs\solid\greater-than.svg" />
+    <Content Include="frontawesome\svgs\solid\grimace.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-beam-sweat.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-beam.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-hearts.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-squint-tears.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-squint.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-stars.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-tears.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-tongue-squint.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-tongue-wink.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-tongue.svg" />
+    <Content Include="frontawesome\svgs\solid\grin-wink.svg" />
+    <Content Include="frontawesome\svgs\solid\grin.svg" />
+    <Content Include="frontawesome\svgs\solid\grip-horizontal.svg" />
+    <Content Include="frontawesome\svgs\solid\grip-lines-vertical.svg" />
+    <Content Include="frontawesome\svgs\solid\grip-lines.svg" />
+    <Content Include="frontawesome\svgs\solid\grip-vertical.svg" />
+    <Content Include="frontawesome\svgs\solid\guitar.svg" />
+    <Content Include="frontawesome\svgs\solid\h-square.svg" />
+    <Content Include="frontawesome\svgs\solid\hamburger.svg" />
+    <Content Include="frontawesome\svgs\solid\hammer.svg" />
+    <Content Include="frontawesome\svgs\solid\hamsa.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-holding-heart.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-holding-medical.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-holding-usd.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-holding-water.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-holding.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-lizard.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-middle-finger.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-paper.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-peace.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-point-down.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-point-left.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-point-right.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-point-up.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-pointer.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-rock.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-scissors.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-sparkles.svg" />
+    <Content Include="frontawesome\svgs\solid\hand-spock.svg" />
+    <Content Include="frontawesome\svgs\solid\hands-helping.svg" />
+    <Content Include="frontawesome\svgs\solid\hands-wash.svg" />
+    <Content Include="frontawesome\svgs\solid\hands.svg" />
+    <Content Include="frontawesome\svgs\solid\handshake-alt-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\handshake-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\handshake.svg" />
+    <Content Include="frontawesome\svgs\solid\hanukiah.svg" />
+    <Content Include="frontawesome\svgs\solid\hard-hat.svg" />
+    <Content Include="frontawesome\svgs\solid\hashtag.svg" />
+    <Content Include="frontawesome\svgs\solid\hat-cowboy-side.svg" />
+    <Content Include="frontawesome\svgs\solid\hat-cowboy.svg" />
+    <Content Include="frontawesome\svgs\solid\hat-wizard.svg" />
+    <Content Include="frontawesome\svgs\solid\hdd.svg" />
+    <Content Include="frontawesome\svgs\solid\head-side-cough-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\head-side-cough.svg" />
+    <Content Include="frontawesome\svgs\solid\head-side-mask.svg" />
+    <Content Include="frontawesome\svgs\solid\head-side-virus.svg" />
+    <Content Include="frontawesome\svgs\solid\heading.svg" />
+    <Content Include="frontawesome\svgs\solid\headphones-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\headphones.svg" />
+    <Content Include="frontawesome\svgs\solid\headset.svg" />
+    <Content Include="frontawesome\svgs\solid\heart-broken.svg" />
+    <Content Include="frontawesome\svgs\solid\heart.svg" />
+    <Content Include="frontawesome\svgs\solid\heartbeat.svg" />
+    <Content Include="frontawesome\svgs\solid\helicopter.svg" />
+    <Content Include="frontawesome\svgs\solid\highlighter.svg" />
+    <Content Include="frontawesome\svgs\solid\hiking.svg" />
+    <Content Include="frontawesome\svgs\solid\hippo.svg" />
+    <Content Include="frontawesome\svgs\solid\history.svg" />
+    <Content Include="frontawesome\svgs\solid\hockey-puck.svg" />
+    <Content Include="frontawesome\svgs\solid\holly-berry.svg" />
+    <Content Include="frontawesome\svgs\solid\home.svg" />
+    <Content Include="frontawesome\svgs\solid\horse-head.svg" />
+    <Content Include="frontawesome\svgs\solid\horse.svg" />
+    <Content Include="frontawesome\svgs\solid\hospital-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\hospital-symbol.svg" />
+    <Content Include="frontawesome\svgs\solid\hospital-user.svg" />
+    <Content Include="frontawesome\svgs\solid\hospital.svg" />
+    <Content Include="frontawesome\svgs\solid\hot-tub.svg" />
+    <Content Include="frontawesome\svgs\solid\hotdog.svg" />
+    <Content Include="frontawesome\svgs\solid\hotel.svg" />
+    <Content Include="frontawesome\svgs\solid\hourglass-end.svg" />
+    <Content Include="frontawesome\svgs\solid\hourglass-half.svg" />
+    <Content Include="frontawesome\svgs\solid\hourglass-start.svg" />
+    <Content Include="frontawesome\svgs\solid\hourglass.svg" />
+    <Content Include="frontawesome\svgs\solid\house-damage.svg" />
+    <Content Include="frontawesome\svgs\solid\house-user.svg" />
+    <Content Include="frontawesome\svgs\solid\hryvnia.svg" />
+    <Content Include="frontawesome\svgs\solid\i-cursor.svg" />
+    <Content Include="frontawesome\svgs\solid\ice-cream.svg" />
+    <Content Include="frontawesome\svgs\solid\icicles.svg" />
+    <Content Include="frontawesome\svgs\solid\icons.svg" />
+    <Content Include="frontawesome\svgs\solid\id-badge.svg" />
+    <Content Include="frontawesome\svgs\solid\id-card-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\id-card.svg" />
+    <Content Include="frontawesome\svgs\solid\igloo.svg" />
+    <Content Include="frontawesome\svgs\solid\image.svg" />
+    <Content Include="frontawesome\svgs\solid\images.svg" />
+    <Content Include="frontawesome\svgs\solid\inbox.svg" />
+    <Content Include="frontawesome\svgs\solid\indent.svg" />
+    <Content Include="frontawesome\svgs\solid\industry.svg" />
+    <Content Include="frontawesome\svgs\solid\infinity.svg" />
+    <Content Include="frontawesome\svgs\solid\info-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\info.svg" />
+    <Content Include="frontawesome\svgs\solid\italic.svg" />
+    <Content Include="frontawesome\svgs\solid\jedi.svg" />
+    <Content Include="frontawesome\svgs\solid\joint.svg" />
+    <Content Include="frontawesome\svgs\solid\journal-whills.svg" />
+    <Content Include="frontawesome\svgs\solid\kaaba.svg" />
+    <Content Include="frontawesome\svgs\solid\key.svg" />
+    <Content Include="frontawesome\svgs\solid\keyboard.svg" />
+    <Content Include="frontawesome\svgs\solid\khanda.svg" />
+    <Content Include="frontawesome\svgs\solid\kiss-beam.svg" />
+    <Content Include="frontawesome\svgs\solid\kiss-wink-heart.svg" />
+    <Content Include="frontawesome\svgs\solid\kiss.svg" />
+    <Content Include="frontawesome\svgs\solid\kiwi-bird.svg" />
+    <Content Include="frontawesome\svgs\solid\landmark.svg" />
+    <Content Include="frontawesome\svgs\solid\language.svg" />
+    <Content Include="frontawesome\svgs\solid\laptop-code.svg" />
+    <Content Include="frontawesome\svgs\solid\laptop-house.svg" />
+    <Content Include="frontawesome\svgs\solid\laptop-medical.svg" />
+    <Content Include="frontawesome\svgs\solid\laptop.svg" />
+    <Content Include="frontawesome\svgs\solid\laugh-beam.svg" />
+    <Content Include="frontawesome\svgs\solid\laugh-squint.svg" />
+    <Content Include="frontawesome\svgs\solid\laugh-wink.svg" />
+    <Content Include="frontawesome\svgs\solid\laugh.svg" />
+    <Content Include="frontawesome\svgs\solid\layer-group.svg" />
+    <Content Include="frontawesome\svgs\solid\leaf.svg" />
+    <Content Include="frontawesome\svgs\solid\lemon.svg" />
+    <Content Include="frontawesome\svgs\solid\less-than-equal.svg" />
+    <Content Include="frontawesome\svgs\solid\less-than.svg" />
+    <Content Include="frontawesome\svgs\solid\level-down-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\level-up-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\life-ring.svg" />
+    <Content Include="frontawesome\svgs\solid\lightbulb.svg" />
+    <Content Include="frontawesome\svgs\solid\link.svg" />
+    <Content Include="frontawesome\svgs\solid\lira-sign.svg" />
+    <Content Include="frontawesome\svgs\solid\list-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\list-ol.svg" />
+    <Content Include="frontawesome\svgs\solid\list-ul.svg" />
+    <Content Include="frontawesome\svgs\solid\list.svg" />
+    <Content Include="frontawesome\svgs\solid\location-arrow.svg" />
+    <Content Include="frontawesome\svgs\solid\lock-open.svg" />
+    <Content Include="frontawesome\svgs\solid\lock.svg" />
+    <Content Include="frontawesome\svgs\solid\long-arrow-alt-down.svg" />
+    <Content Include="frontawesome\svgs\solid\long-arrow-alt-left.svg" />
+    <Content Include="frontawesome\svgs\solid\long-arrow-alt-right.svg" />
+    <Content Include="frontawesome\svgs\solid\long-arrow-alt-up.svg" />
+    <Content Include="frontawesome\svgs\solid\low-vision.svg" />
+    <Content Include="frontawesome\svgs\solid\luggage-cart.svg" />
+    <Content Include="frontawesome\svgs\solid\lungs-virus.svg" />
+    <Content Include="frontawesome\svgs\solid\lungs.svg" />
+    <Content Include="frontawesome\svgs\solid\magic.svg" />
+    <Content Include="frontawesome\svgs\solid\magnet.svg" />
+    <Content Include="frontawesome\svgs\solid\mail-bulk.svg" />
+    <Content Include="frontawesome\svgs\solid\male.svg" />
+    <Content Include="frontawesome\svgs\solid\map-marked-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\map-marked.svg" />
+    <Content Include="frontawesome\svgs\solid\map-marker-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\map-marker.svg" />
+    <Content Include="frontawesome\svgs\solid\map-pin.svg" />
+    <Content Include="frontawesome\svgs\solid\map-signs.svg" />
+    <Content Include="frontawesome\svgs\solid\map.svg" />
+    <Content Include="frontawesome\svgs\solid\marker.svg" />
+    <Content Include="frontawesome\svgs\solid\mars-double.svg" />
+    <Content Include="frontawesome\svgs\solid\mars-stroke-h.svg" />
+    <Content Include="frontawesome\svgs\solid\mars-stroke-v.svg" />
+    <Content Include="frontawesome\svgs\solid\mars-stroke.svg" />
+    <Content Include="frontawesome\svgs\solid\mars.svg" />
+    <Content Include="frontawesome\svgs\solid\mask.svg" />
+    <Content Include="frontawesome\svgs\solid\medal.svg" />
+    <Content Include="frontawesome\svgs\solid\medkit.svg" />
+    <Content Include="frontawesome\svgs\solid\meh-blank.svg" />
+    <Content Include="frontawesome\svgs\solid\meh-rolling-eyes.svg" />
+    <Content Include="frontawesome\svgs\solid\meh.svg" />
+    <Content Include="frontawesome\svgs\solid\memory.svg" />
+    <Content Include="frontawesome\svgs\solid\menorah.svg" />
+    <Content Include="frontawesome\svgs\solid\mercury.svg" />
+    <Content Include="frontawesome\svgs\solid\meteor.svg" />
+    <Content Include="frontawesome\svgs\solid\microchip.svg" />
+    <Content Include="frontawesome\svgs\solid\microphone-alt-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\microphone-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\microphone-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\microphone.svg" />
+    <Content Include="frontawesome\svgs\solid\microscope.svg" />
+    <Content Include="frontawesome\svgs\solid\minus-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\minus-square.svg" />
+    <Content Include="frontawesome\svgs\solid\minus.svg" />
+    <Content Include="frontawesome\svgs\solid\mitten.svg" />
+    <Content Include="frontawesome\svgs\solid\mobile-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\mobile.svg" />
+    <Content Include="frontawesome\svgs\solid\money-bill-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\money-bill-wave-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\money-bill-wave.svg" />
+    <Content Include="frontawesome\svgs\solid\money-bill.svg" />
+    <Content Include="frontawesome\svgs\solid\money-check-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\money-check.svg" />
+    <Content Include="frontawesome\svgs\solid\monument.svg" />
+    <Content Include="frontawesome\svgs\solid\moon.svg" />
+    <Content Include="frontawesome\svgs\solid\mortar-pestle.svg" />
+    <Content Include="frontawesome\svgs\solid\mosque.svg" />
+    <Content Include="frontawesome\svgs\solid\motorcycle.svg" />
+    <Content Include="frontawesome\svgs\solid\mountain.svg" />
+    <Content Include="frontawesome\svgs\solid\mouse-pointer.svg" />
+    <Content Include="frontawesome\svgs\solid\mouse.svg" />
+    <Content Include="frontawesome\svgs\solid\mug-hot.svg" />
+    <Content Include="frontawesome\svgs\solid\music.svg" />
+    <Content Include="frontawesome\svgs\solid\network-wired.svg" />
+    <Content Include="frontawesome\svgs\solid\neuter.svg" />
+    <Content Include="frontawesome\svgs\solid\newspaper.svg" />
+    <Content Include="frontawesome\svgs\solid\not-equal.svg" />
+    <Content Include="frontawesome\svgs\solid\notes-medical.svg" />
+    <Content Include="frontawesome\svgs\solid\object-group.svg" />
+    <Content Include="frontawesome\svgs\solid\object-ungroup.svg" />
+    <Content Include="frontawesome\svgs\solid\oil-can.svg" />
+    <Content Include="frontawesome\svgs\solid\om.svg" />
+    <Content Include="frontawesome\svgs\solid\otter.svg" />
+    <Content Include="frontawesome\svgs\solid\outdent.svg" />
+    <Content Include="frontawesome\svgs\solid\pager.svg" />
+    <Content Include="frontawesome\svgs\solid\paint-brush.svg" />
+    <Content Include="frontawesome\svgs\solid\paint-roller.svg" />
+    <Content Include="frontawesome\svgs\solid\palette.svg" />
+    <Content Include="frontawesome\svgs\solid\pallet.svg" />
+    <Content Include="frontawesome\svgs\solid\paper-plane.svg" />
+    <Content Include="frontawesome\svgs\solid\paperclip.svg" />
+    <Content Include="frontawesome\svgs\solid\parachute-box.svg" />
+    <Content Include="frontawesome\svgs\solid\paragraph.svg" />
+    <Content Include="frontawesome\svgs\solid\parking.svg" />
+    <Content Include="frontawesome\svgs\solid\passport.svg" />
+    <Content Include="frontawesome\svgs\solid\pastafarianism.svg" />
+    <Content Include="frontawesome\svgs\solid\paste.svg" />
+    <Content Include="frontawesome\svgs\solid\pause-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\pause.svg" />
+    <Content Include="frontawesome\svgs\solid\paw.svg" />
+    <Content Include="frontawesome\svgs\solid\peace.svg" />
+    <Content Include="frontawesome\svgs\solid\pen-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\pen-fancy.svg" />
+    <Content Include="frontawesome\svgs\solid\pen-nib.svg" />
+    <Content Include="frontawesome\svgs\solid\pen-square.svg" />
+    <Content Include="frontawesome\svgs\solid\pen.svg" />
+    <Content Include="frontawesome\svgs\solid\pencil-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\pencil-ruler.svg" />
+    <Content Include="frontawesome\svgs\solid\people-arrows.svg" />
+    <Content Include="frontawesome\svgs\solid\people-carry.svg" />
+    <Content Include="frontawesome\svgs\solid\pepper-hot.svg" />
+    <Content Include="frontawesome\svgs\solid\percent.svg" />
+    <Content Include="frontawesome\svgs\solid\percentage.svg" />
+    <Content Include="frontawesome\svgs\solid\person-booth.svg" />
+    <Content Include="frontawesome\svgs\solid\phone-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\phone-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\phone-square-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\phone-square.svg" />
+    <Content Include="frontawesome\svgs\solid\phone-volume.svg" />
+    <Content Include="frontawesome\svgs\solid\phone.svg" />
+    <Content Include="frontawesome\svgs\solid\photo-video.svg" />
+    <Content Include="frontawesome\svgs\solid\piggy-bank.svg" />
+    <Content Include="frontawesome\svgs\solid\pills.svg" />
+    <Content Include="frontawesome\svgs\solid\pizza-slice.svg" />
+    <Content Include="frontawesome\svgs\solid\place-of-worship.svg" />
+    <Content Include="frontawesome\svgs\solid\plane-arrival.svg" />
+    <Content Include="frontawesome\svgs\solid\plane-departure.svg" />
+    <Content Include="frontawesome\svgs\solid\plane-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\plane.svg" />
+    <Content Include="frontawesome\svgs\solid\play-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\play.svg" />
+    <Content Include="frontawesome\svgs\solid\plug.svg" />
+    <Content Include="frontawesome\svgs\solid\plus-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\plus-square.svg" />
+    <Content Include="frontawesome\svgs\solid\plus.svg" />
+    <Content Include="frontawesome\svgs\solid\podcast.svg" />
+    <Content Include="frontawesome\svgs\solid\poll-h.svg" />
+    <Content Include="frontawesome\svgs\solid\poll.svg" />
+    <Content Include="frontawesome\svgs\solid\poo-storm.svg" />
+    <Content Include="frontawesome\svgs\solid\poo.svg" />
+    <Content Include="frontawesome\svgs\solid\poop.svg" />
+    <Content Include="frontawesome\svgs\solid\portrait.svg" />
+    <Content Include="frontawesome\svgs\solid\pound-sign.svg" />
+    <Content Include="frontawesome\svgs\solid\power-off.svg" />
+    <Content Include="frontawesome\svgs\solid\pray.svg" />
+    <Content Include="frontawesome\svgs\solid\praying-hands.svg" />
+    <Content Include="frontawesome\svgs\solid\prescription-bottle-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\prescription-bottle.svg" />
+    <Content Include="frontawesome\svgs\solid\prescription.svg" />
+    <Content Include="frontawesome\svgs\solid\print.svg" />
+    <Content Include="frontawesome\svgs\solid\procedures.svg" />
+    <Content Include="frontawesome\svgs\solid\project-diagram.svg" />
+    <Content Include="frontawesome\svgs\solid\pump-medical.svg" />
+    <Content Include="frontawesome\svgs\solid\pump-soap.svg" />
+    <Content Include="frontawesome\svgs\solid\puzzle-piece.svg" />
+    <Content Include="frontawesome\svgs\solid\qrcode.svg" />
+    <Content Include="frontawesome\svgs\solid\question-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\question.svg" />
+    <Content Include="frontawesome\svgs\solid\quidditch.svg" />
+    <Content Include="frontawesome\svgs\solid\quote-left.svg" />
+    <Content Include="frontawesome\svgs\solid\quote-right.svg" />
+    <Content Include="frontawesome\svgs\solid\quran.svg" />
+    <Content Include="frontawesome\svgs\solid\radiation-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\radiation.svg" />
+    <Content Include="frontawesome\svgs\solid\rainbow.svg" />
+    <Content Include="frontawesome\svgs\solid\random.svg" />
+    <Content Include="frontawesome\svgs\solid\receipt.svg" />
+    <Content Include="frontawesome\svgs\solid\record-vinyl.svg" />
+    <Content Include="frontawesome\svgs\solid\recycle.svg" />
+    <Content Include="frontawesome\svgs\solid\redo-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\redo.svg" />
+    <Content Include="frontawesome\svgs\solid\registered.svg" />
+    <Content Include="frontawesome\svgs\solid\remove-format.svg" />
+    <Content Include="frontawesome\svgs\solid\reply-all.svg" />
+    <Content Include="frontawesome\svgs\solid\reply.svg" />
+    <Content Include="frontawesome\svgs\solid\republican.svg" />
+    <Content Include="frontawesome\svgs\solid\restroom.svg" />
+    <Content Include="frontawesome\svgs\solid\retweet.svg" />
+    <Content Include="frontawesome\svgs\solid\ribbon.svg" />
+    <Content Include="frontawesome\svgs\solid\ring.svg" />
+    <Content Include="frontawesome\svgs\solid\road.svg" />
+    <Content Include="frontawesome\svgs\solid\robot.svg" />
+    <Content Include="frontawesome\svgs\solid\rocket.svg" />
+    <Content Include="frontawesome\svgs\solid\route.svg" />
+    <Content Include="frontawesome\svgs\solid\rss-square.svg" />
+    <Content Include="frontawesome\svgs\solid\rss.svg" />
+    <Content Include="frontawesome\svgs\solid\ruble-sign.svg" />
+    <Content Include="frontawesome\svgs\solid\ruler-combined.svg" />
+    <Content Include="frontawesome\svgs\solid\ruler-horizontal.svg" />
+    <Content Include="frontawesome\svgs\solid\ruler-vertical.svg" />
+    <Content Include="frontawesome\svgs\solid\ruler.svg" />
+    <Content Include="frontawesome\svgs\solid\running.svg" />
+    <Content Include="frontawesome\svgs\solid\rupee-sign.svg" />
+    <Content Include="frontawesome\svgs\solid\sad-cry.svg" />
+    <Content Include="frontawesome\svgs\solid\sad-tear.svg" />
+    <Content Include="frontawesome\svgs\solid\satellite-dish.svg" />
+    <Content Include="frontawesome\svgs\solid\satellite.svg" />
+    <Content Include="frontawesome\svgs\solid\save.svg" />
+    <Content Include="frontawesome\svgs\solid\school.svg" />
+    <Content Include="frontawesome\svgs\solid\screwdriver.svg" />
+    <Content Include="frontawesome\svgs\solid\scroll.svg" />
+    <Content Include="frontawesome\svgs\solid\sd-card.svg" />
+    <Content Include="frontawesome\svgs\solid\search-dollar.svg" />
+    <Content Include="frontawesome\svgs\solid\search-location.svg" />
+    <Content Include="frontawesome\svgs\solid\search-minus.svg" />
+    <Content Include="frontawesome\svgs\solid\search-plus.svg" />
+    <Content Include="frontawesome\svgs\solid\search.svg" />
+    <Content Include="frontawesome\svgs\solid\seedling.svg" />
+    <Content Include="frontawesome\svgs\solid\server.svg" />
+    <Content Include="frontawesome\svgs\solid\shapes.svg" />
+    <Content Include="frontawesome\svgs\solid\share-alt-square.svg" />
+    <Content Include="frontawesome\svgs\solid\share-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\share-square.svg" />
+    <Content Include="frontawesome\svgs\solid\share.svg" />
+    <Content Include="frontawesome\svgs\solid\shekel-sign.svg" />
+    <Content Include="frontawesome\svgs\solid\shield-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\shield-virus.svg" />
+    <Content Include="frontawesome\svgs\solid\ship.svg" />
+    <Content Include="frontawesome\svgs\solid\shipping-fast.svg" />
+    <Content Include="frontawesome\svgs\solid\shoe-prints.svg" />
+    <Content Include="frontawesome\svgs\solid\shopping-bag.svg" />
+    <Content Include="frontawesome\svgs\solid\shopping-basket.svg" />
+    <Content Include="frontawesome\svgs\solid\shopping-cart.svg" />
+    <Content Include="frontawesome\svgs\solid\shower.svg" />
+    <Content Include="frontawesome\svgs\solid\shuttle-van.svg" />
+    <Content Include="frontawesome\svgs\solid\sign-in-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\sign-language.svg" />
+    <Content Include="frontawesome\svgs\solid\sign-out-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\sign.svg" />
+    <Content Include="frontawesome\svgs\solid\signal.svg" />
+    <Content Include="frontawesome\svgs\solid\signature.svg" />
+    <Content Include="frontawesome\svgs\solid\sim-card.svg" />
+    <Content Include="frontawesome\svgs\solid\sink.svg" />
+    <Content Include="frontawesome\svgs\solid\sitemap.svg" />
+    <Content Include="frontawesome\svgs\solid\skating.svg" />
+    <Content Include="frontawesome\svgs\solid\skiing-nordic.svg" />
+    <Content Include="frontawesome\svgs\solid\skiing.svg" />
+    <Content Include="frontawesome\svgs\solid\skull-crossbones.svg" />
+    <Content Include="frontawesome\svgs\solid\skull.svg" />
+    <Content Include="frontawesome\svgs\solid\slash.svg" />
+    <Content Include="frontawesome\svgs\solid\sleigh.svg" />
+    <Content Include="frontawesome\svgs\solid\sliders-h.svg" />
+    <Content Include="frontawesome\svgs\solid\smile-beam.svg" />
+    <Content Include="frontawesome\svgs\solid\smile-wink.svg" />
+    <Content Include="frontawesome\svgs\solid\smile.svg" />
+    <Content Include="frontawesome\svgs\solid\smog.svg" />
+    <Content Include="frontawesome\svgs\solid\smoking-ban.svg" />
+    <Content Include="frontawesome\svgs\solid\smoking.svg" />
+    <Content Include="frontawesome\svgs\solid\sms.svg" />
+    <Content Include="frontawesome\svgs\solid\snowboarding.svg" />
+    <Content Include="frontawesome\svgs\solid\snowflake.svg" />
+    <Content Include="frontawesome\svgs\solid\snowman.svg" />
+    <Content Include="frontawesome\svgs\solid\snowplow.svg" />
+    <Content Include="frontawesome\svgs\solid\soap.svg" />
+    <Content Include="frontawesome\svgs\solid\socks.svg" />
+    <Content Include="frontawesome\svgs\solid\solar-panel.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-alpha-down-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-alpha-down.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-alpha-up-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-alpha-up.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-amount-down-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-amount-down.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-amount-up-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-amount-up.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-down.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-numeric-down-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-numeric-down.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-numeric-up-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-numeric-up.svg" />
+    <Content Include="frontawesome\svgs\solid\sort-up.svg" />
+    <Content Include="frontawesome\svgs\solid\sort.svg" />
+    <Content Include="frontawesome\svgs\solid\spa.svg" />
+    <Content Include="frontawesome\svgs\solid\space-shuttle.svg" />
+    <Content Include="frontawesome\svgs\solid\spell-check.svg" />
+    <Content Include="frontawesome\svgs\solid\spider.svg" />
+    <Content Include="frontawesome\svgs\solid\spinner.svg" />
+    <Content Include="frontawesome\svgs\solid\splotch.svg" />
+    <Content Include="frontawesome\svgs\solid\spray-can.svg" />
+    <Content Include="frontawesome\svgs\solid\square-full.svg" />
+    <Content Include="frontawesome\svgs\solid\square-root-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\square.svg" />
+    <Content Include="frontawesome\svgs\solid\stamp.svg" />
+    <Content Include="frontawesome\svgs\solid\star-and-crescent.svg" />
+    <Content Include="frontawesome\svgs\solid\star-half-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\star-half.svg" />
+    <Content Include="frontawesome\svgs\solid\star-of-david.svg" />
+    <Content Include="frontawesome\svgs\solid\star-of-life.svg" />
+    <Content Include="frontawesome\svgs\solid\star.svg" />
+    <Content Include="frontawesome\svgs\solid\step-backward.svg" />
+    <Content Include="frontawesome\svgs\solid\step-forward.svg" />
+    <Content Include="frontawesome\svgs\solid\stethoscope.svg" />
+    <Content Include="frontawesome\svgs\solid\sticky-note.svg" />
+    <Content Include="frontawesome\svgs\solid\stop-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\stop.svg" />
+    <Content Include="frontawesome\svgs\solid\stopwatch-20.svg" />
+    <Content Include="frontawesome\svgs\solid\stopwatch.svg" />
+    <Content Include="frontawesome\svgs\solid\store-alt-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\store-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\store-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\store.svg" />
+    <Content Include="frontawesome\svgs\solid\stream.svg" />
+    <Content Include="frontawesome\svgs\solid\street-view.svg" />
+    <Content Include="frontawesome\svgs\solid\strikethrough.svg" />
+    <Content Include="frontawesome\svgs\solid\stroopwafel.svg" />
+    <Content Include="frontawesome\svgs\solid\subscript.svg" />
+    <Content Include="frontawesome\svgs\solid\subway.svg" />
+    <Content Include="frontawesome\svgs\solid\suitcase-rolling.svg" />
+    <Content Include="frontawesome\svgs\solid\suitcase.svg" />
+    <Content Include="frontawesome\svgs\solid\sun.svg" />
+    <Content Include="frontawesome\svgs\solid\superscript.svg" />
+    <Content Include="frontawesome\svgs\solid\surprise.svg" />
+    <Content Include="frontawesome\svgs\solid\swatchbook.svg" />
+    <Content Include="frontawesome\svgs\solid\swimmer.svg" />
+    <Content Include="frontawesome\svgs\solid\swimming-pool.svg" />
+    <Content Include="frontawesome\svgs\solid\synagogue.svg" />
+    <Content Include="frontawesome\svgs\solid\sync-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\sync.svg" />
+    <Content Include="frontawesome\svgs\solid\syringe.svg" />
+    <Content Include="frontawesome\svgs\solid\table-tennis.svg" />
+    <Content Include="frontawesome\svgs\solid\table.svg" />
+    <Content Include="frontawesome\svgs\solid\tablet-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\tablet.svg" />
+    <Content Include="frontawesome\svgs\solid\tablets.svg" />
+    <Content Include="frontawesome\svgs\solid\tachometer-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\tag.svg" />
+    <Content Include="frontawesome\svgs\solid\tags.svg" />
+    <Content Include="frontawesome\svgs\solid\tape.svg" />
+    <Content Include="frontawesome\svgs\solid\tasks.svg" />
+    <Content Include="frontawesome\svgs\solid\taxi.svg" />
+    <Content Include="frontawesome\svgs\solid\teeth-open.svg" />
+    <Content Include="frontawesome\svgs\solid\teeth.svg" />
+    <Content Include="frontawesome\svgs\solid\temperature-high.svg" />
+    <Content Include="frontawesome\svgs\solid\temperature-low.svg" />
+    <Content Include="frontawesome\svgs\solid\tenge.svg" />
+    <Content Include="frontawesome\svgs\solid\terminal.svg" />
+    <Content Include="frontawesome\svgs\solid\text-height.svg" />
+    <Content Include="frontawesome\svgs\solid\text-width.svg" />
+    <Content Include="frontawesome\svgs\solid\th-large.svg" />
+    <Content Include="frontawesome\svgs\solid\th-list.svg" />
+    <Content Include="frontawesome\svgs\solid\th.svg" />
+    <Content Include="frontawesome\svgs\solid\theater-masks.svg" />
+    <Content Include="frontawesome\svgs\solid\thermometer-empty.svg" />
+    <Content Include="frontawesome\svgs\solid\thermometer-full.svg" />
+    <Content Include="frontawesome\svgs\solid\thermometer-half.svg" />
+    <Content Include="frontawesome\svgs\solid\thermometer-quarter.svg" />
+    <Content Include="frontawesome\svgs\solid\thermometer-three-quarters.svg" />
+    <Content Include="frontawesome\svgs\solid\thermometer.svg" />
+    <Content Include="frontawesome\svgs\solid\thumbs-down.svg" />
+    <Content Include="frontawesome\svgs\solid\thumbs-up.svg" />
+    <Content Include="frontawesome\svgs\solid\thumbtack.svg" />
+    <Content Include="frontawesome\svgs\solid\ticket-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\times-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\times.svg" />
+    <Content Include="frontawesome\svgs\solid\tint-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\tint.svg" />
+    <Content Include="frontawesome\svgs\solid\tired.svg" />
+    <Content Include="frontawesome\svgs\solid\toggle-off.svg" />
+    <Content Include="frontawesome\svgs\solid\toggle-on.svg" />
+    <Content Include="frontawesome\svgs\solid\toilet-paper-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\toilet-paper.svg" />
+    <Content Include="frontawesome\svgs\solid\toilet.svg" />
+    <Content Include="frontawesome\svgs\solid\toolbox.svg" />
+    <Content Include="frontawesome\svgs\solid\tools.svg" />
+    <Content Include="frontawesome\svgs\solid\tooth.svg" />
+    <Content Include="frontawesome\svgs\solid\torah.svg" />
+    <Content Include="frontawesome\svgs\solid\torii-gate.svg" />
+    <Content Include="frontawesome\svgs\solid\tractor.svg" />
+    <Content Include="frontawesome\svgs\solid\trademark.svg" />
+    <Content Include="frontawesome\svgs\solid\traffic-light.svg" />
+    <Content Include="frontawesome\svgs\solid\trailer.svg" />
+    <Content Include="frontawesome\svgs\solid\train.svg" />
+    <Content Include="frontawesome\svgs\solid\tram.svg" />
+    <Content Include="frontawesome\svgs\solid\transgender-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\transgender.svg" />
+    <Content Include="frontawesome\svgs\solid\trash-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\trash-restore-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\trash-restore.svg" />
+    <Content Include="frontawesome\svgs\solid\trash.svg" />
+    <Content Include="frontawesome\svgs\solid\tree.svg" />
+    <Content Include="frontawesome\svgs\solid\trophy.svg" />
+    <Content Include="frontawesome\svgs\solid\truck-loading.svg" />
+    <Content Include="frontawesome\svgs\solid\truck-monster.svg" />
+    <Content Include="frontawesome\svgs\solid\truck-moving.svg" />
+    <Content Include="frontawesome\svgs\solid\truck-pickup.svg" />
+    <Content Include="frontawesome\svgs\solid\truck.svg" />
+    <Content Include="frontawesome\svgs\solid\tshirt.svg" />
+    <Content Include="frontawesome\svgs\solid\tty.svg" />
+    <Content Include="frontawesome\svgs\solid\tv.svg" />
+    <Content Include="frontawesome\svgs\solid\umbrella-beach.svg" />
+    <Content Include="frontawesome\svgs\solid\umbrella.svg" />
+    <Content Include="frontawesome\svgs\solid\underline.svg" />
+    <Content Include="frontawesome\svgs\solid\undo-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\undo.svg" />
+    <Content Include="frontawesome\svgs\solid\universal-access.svg" />
+    <Content Include="frontawesome\svgs\solid\university.svg" />
+    <Content Include="frontawesome\svgs\solid\unlink.svg" />
+    <Content Include="frontawesome\svgs\solid\unlock-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\unlock.svg" />
+    <Content Include="frontawesome\svgs\solid\upload.svg" />
+    <Content Include="frontawesome\svgs\solid\user-alt-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\user-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\user-astronaut.svg" />
+    <Content Include="frontawesome\svgs\solid\user-check.svg" />
+    <Content Include="frontawesome\svgs\solid\user-circle.svg" />
+    <Content Include="frontawesome\svgs\solid\user-clock.svg" />
+    <Content Include="frontawesome\svgs\solid\user-cog.svg" />
+    <Content Include="frontawesome\svgs\solid\user-edit.svg" />
+    <Content Include="frontawesome\svgs\solid\user-friends.svg" />
+    <Content Include="frontawesome\svgs\solid\user-graduate.svg" />
+    <Content Include="frontawesome\svgs\solid\user-injured.svg" />
+    <Content Include="frontawesome\svgs\solid\user-lock.svg" />
+    <Content Include="frontawesome\svgs\solid\user-md.svg" />
+    <Content Include="frontawesome\svgs\solid\user-minus.svg" />
+    <Content Include="frontawesome\svgs\solid\user-ninja.svg" />
+    <Content Include="frontawesome\svgs\solid\user-nurse.svg" />
+    <Content Include="frontawesome\svgs\solid\user-plus.svg" />
+    <Content Include="frontawesome\svgs\solid\user-secret.svg" />
+    <Content Include="frontawesome\svgs\solid\user-shield.svg" />
+    <Content Include="frontawesome\svgs\solid\user-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\user-tag.svg" />
+    <Content Include="frontawesome\svgs\solid\user-tie.svg" />
+    <Content Include="frontawesome\svgs\solid\user-times.svg" />
+    <Content Include="frontawesome\svgs\solid\user.svg" />
+    <Content Include="frontawesome\svgs\solid\users-cog.svg" />
+    <Content Include="frontawesome\svgs\solid\users-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\users.svg" />
+    <Content Include="frontawesome\svgs\solid\utensil-spoon.svg" />
+    <Content Include="frontawesome\svgs\solid\utensils.svg" />
+    <Content Include="frontawesome\svgs\solid\vector-square.svg" />
+    <Content Include="frontawesome\svgs\solid\venus-double.svg" />
+    <Content Include="frontawesome\svgs\solid\venus-mars.svg" />
+    <Content Include="frontawesome\svgs\solid\venus.svg" />
+    <Content Include="frontawesome\svgs\solid\vial.svg" />
+    <Content Include="frontawesome\svgs\solid\vials.svg" />
+    <Content Include="frontawesome\svgs\solid\video-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\video.svg" />
+    <Content Include="frontawesome\svgs\solid\vihara.svg" />
+    <Content Include="frontawesome\svgs\solid\virus-slash.svg" />
+    <Content Include="frontawesome\svgs\solid\virus.svg" />
+    <Content Include="frontawesome\svgs\solid\viruses.svg" />
+    <Content Include="frontawesome\svgs\solid\voicemail.svg" />
+    <Content Include="frontawesome\svgs\solid\volleyball-ball.svg" />
+    <Content Include="frontawesome\svgs\solid\volume-down.svg" />
+    <Content Include="frontawesome\svgs\solid\volume-mute.svg" />
+    <Content Include="frontawesome\svgs\solid\volume-off.svg" />
+    <Content Include="frontawesome\svgs\solid\volume-up.svg" />
+    <Content Include="frontawesome\svgs\solid\vote-yea.svg" />
+    <Content Include="frontawesome\svgs\solid\vr-cardboard.svg" />
+    <Content Include="frontawesome\svgs\solid\walking.svg" />
+    <Content Include="frontawesome\svgs\solid\wallet.svg" />
+    <Content Include="frontawesome\svgs\solid\warehouse.svg" />
+    <Content Include="frontawesome\svgs\solid\water.svg" />
+    <Content Include="frontawesome\svgs\solid\wave-square.svg" />
+    <Content Include="frontawesome\svgs\solid\weight-hanging.svg" />
+    <Content Include="frontawesome\svgs\solid\weight.svg" />
+    <Content Include="frontawesome\svgs\solid\wheelchair.svg" />
+    <Content Include="frontawesome\svgs\solid\wifi.svg" />
+    <Content Include="frontawesome\svgs\solid\wind.svg" />
+    <Content Include="frontawesome\svgs\solid\window-close.svg" />
+    <Content Include="frontawesome\svgs\solid\window-maximize.svg" />
+    <Content Include="frontawesome\svgs\solid\window-minimize.svg" />
+    <Content Include="frontawesome\svgs\solid\window-restore.svg" />
+    <Content Include="frontawesome\svgs\solid\wine-bottle.svg" />
+    <Content Include="frontawesome\svgs\solid\wine-glass-alt.svg" />
+    <Content Include="frontawesome\svgs\solid\wine-glass.svg" />
+    <Content Include="frontawesome\svgs\solid\won-sign.svg" />
+    <Content Include="frontawesome\svgs\solid\wrench.svg" />
+    <Content Include="frontawesome\svgs\solid\x-ray.svg" />
+    <Content Include="frontawesome\svgs\solid\yen-sign.svg" />
+    <Content Include="frontawesome\svgs\solid\yin-yang.svg" />
+    <Content Include="frontawesome\webfonts\fa-brands-400.svg" />
+    <Content Include="frontawesome\webfonts\fa-regular-400.svg" />
+    <Content Include="frontawesome\webfonts\fa-solid-900.svg" />
+    <Content Include="Home.aspx" />
+    <Content Include="images\adminIcon.png" />
+    <Content Include="images\Capture.PNG" />
+    <Content Include="images\cross.png" />
+    <Content Include="images\icon2.jpg" />
+    <Content Include="images\manCarry.png" />
+    <Content Include="images\register.png" />
+    <Content Include="images\satri-favi.png" />
+    <Content Include="images\tick.png" />
+    <Content Include="images\water.png" />
+    <Content Include="images\dotheSearch.jpg" />
+    <Content Include="images\evaluate.jpg" />
+    <Content Include="images\research.jpg" />
+    <Content Include="images\reward.jpg" />
+    <Content Include="images\uploadfile.jpg" />
+    <Content Include="images\verify.jpg" />
+    <Content Include="images\viewFile.jpg" />
+    <Content Include="images\YfWI8X.jpg" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Refuse.aspx" />
+    <Content Include="RefuseComment.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="ResearcherAccount.aspx" />
+    <Content Include="SeniorResearcherAccount.aspx" />
+    <Content Include="Statistics.aspx" />
+    <Content Include="UploadFilePage.aspx" />
+    <Content Include="Verify.aspx" />
+    <Content Include="VerifyComment.aspx" />
+    <Content Include="VerifyFiles.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Welcome.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministratorAccount.aspx.cs">
+      <DependentUpon>AdministratorAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministratorAccount.aspx.designer.cs">
+      <DependentUpon>AdministratorAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeProfile.aspx.cs">
+      <DependentUpon>ChangeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeProfile.aspx.designer.cs">
+      <DependentUpon>ChangeProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="classes\fileName.cs" />
+    <Compile Include="classes\rewards.cs" />
+    <Compile Include="Comment.aspx.cs">
+      <DependentUpon>Comment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comment.aspx.designer.cs">
+      <DependentUpon>Comment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Decline.aspx.cs">
+      <DependentUpon>Decline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Decline.aspx.designer.cs">
+      <DependentUpon>Decline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Display.aspx.cs">
+      <DependentUpon>Display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Display.aspx.designer.cs">
+      <DependentUpon>Display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExecutiveDirectorAccount.aspx.cs">
+      <DependentUpon>ExecutiveDirectorAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExecutiveDirectorAccount.aspx.designer.cs">
+      <DependentUpon>ExecutiveDirectorAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="classes\global.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Refuse.aspx.cs">
+      <DependentUpon>Refuse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Refuse.aspx.designer.cs">
+      <DependentUpon>Refuse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RefuseComment.aspx.cs">
+      <DependentUpon>RefuseComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RefuseComment.aspx.designer.cs">
+      <DependentUpon>RefuseComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResearcherAccount.aspx.cs">
+      <DependentUpon>ResearcherAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResearcherAccount.aspx.designer.cs">
+      <DependentUpon>ResearcherAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SATRI.Master.cs">
+      <DependentUpon>SATRI.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SATRI.Master.designer.cs">
+      <DependentUpon>SATRI.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorResearcherAccount.aspx.cs">
+      <DependentUpon>SeniorResearcherAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeniorResearcherAccount.aspx.designer.cs">
+      <DependentUpon>SeniorResearcherAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics.aspx.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Statistics.aspx.designer.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadFilePage.aspx.cs">
+      <DependentUpon>UploadFilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadFilePage.aspx.designer.cs">
+      <DependentUpon>UploadFilePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Verify.aspx.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Verify.aspx.designer.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerifyComment.aspx.cs">
+      <DependentUpon>VerifyComment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerifyComment.aspx.designer.cs">
+      <DependentUpon>VerifyComment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerifyFiles.aspx.cs">
+      <DependentUpon>VerifyFiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerifyFiles.aspx.designer.cs">
+      <DependentUpon>VerifyFiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome.aspx.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Welcome.aspx.designer.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="frontawesome\less\brands.less" />
+    <Content Include="frontawesome\less\fontawesome.less" />
+    <Content Include="frontawesome\less\regular.less" />
+    <Content Include="frontawesome\less\solid.less" />
+    <Content Include="frontawesome\less\v4-shims.less" />
+    <Content Include="frontawesome\less\_animated.less" />
+    <Content Include="frontawesome\less\_bordered-pulled.less" />
+    <Content Include="frontawesome\less\_core.less" />
+    <Content Include="frontawesome\less\_fixed-width.less" />
+    <Content Include="frontawesome\less\_icons.less" />
+    <Content Include="frontawesome\less\_larger.less" />
+    <Content Include="frontawesome\less\_list.less" />
+    <Content Include="frontawesome\less\_mixins.less" />
+    <Content Include="frontawesome\less\_rotated-flipped.less" />
+    <Content Include="frontawesome\less\_screen-reader.less" />
+    <Content Include="frontawesome\less\_shims.less" />
+    <Content Include="frontawesome\less\_stacked.less" />
+    <Content Include="frontawesome\less\_variables.less" />
+    <Content Include="frontawesome\metadata\categories.yml" />
+    <Content Include="frontawesome\metadata\icons.json" />
+    <Content Include="frontawesome\metadata\icons.yml" />
+    <Content Include="frontawesome\metadata\shims.json" />
+    <Content Include="frontawesome\metadata\shims.yml" />
+    <Content Include="frontawesome\metadata\sponsors.yml" />
+    <Content Include="frontawesome\scss\brands.scss" />
+    <Content Include="frontawesome\scss\fontawesome.scss" />
+    <Content Include="frontawesome\scss\regular.scss" />
+    <Content Include="frontawesome\scss\solid.scss" />
+    <Content Include="frontawesome\scss\v4-shims.scss" />
+    <Content Include="frontawesome\scss\_animated.scss" />
+    <Content Include="frontawesome\scss\_bordered-pulled.scss" />
+    <Content Include="frontawesome\scss\_core.scss" />
+    <Content Include="frontawesome\scss\_fixed-width.scss" />
+    <Content Include="frontawesome\scss\_icons.scss" />
+    <Content Include="frontawesome\scss\_larger.scss" />
+    <Content Include="frontawesome\scss\_list.scss" />
+    <Content Include="frontawesome\scss\_mixins.scss" />
+    <Content Include="frontawesome\scss\_rotated-flipped.scss" />
+    <Content Include="frontawesome\scss\_screen-reader.scss" />
+    <Content Include="frontawesome\scss\_shims.scss" />
+    <Content Include="frontawesome\scss\_stacked.scss" />
+    <Content Include="frontawesome\scss\_variables.scss" />
+    <Content Include="frontawesome\webfonts\fa-brands-400.eot" />
+    <Content Include="frontawesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="frontawesome\webfonts\fa-brands-400.woff" />
+    <Content Include="frontawesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="frontawesome\webfonts\fa-regular-400.eot" />
+    <Content Include="frontawesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="frontawesome\webfonts\fa-regular-400.woff" />
+    <Content Include="frontawesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="frontawesome\webfonts\fa-solid-900.eot" />
+    <Content Include="frontawesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="frontawesome\webfonts\fa-solid-900.woff" />
+    <Content Include="frontawesome\webfonts\fa-solid-900.woff2" />
+    <None Include="packages.config" />
+    <Content Include="SATRI.Master" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\sarti - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\sarti - Web Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="files\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51937</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44318/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="packages\Uno.Core.Build.3.0.0\build\Uno.Core.Build.targets" Condition="Exists('packages\Uno.Core.Build.3.0.0\build\Uno.Core.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Uno.Core.Build.3.0.0\build\Uno.Core.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Uno.Core.Build.3.0.0\build\Uno.Core.Build.targets'))" />
+    <Error Condition="!Exists('packages\Uno.SourceGenerationTasks.3.2.0\build\netstandard1.0\Uno.SourceGenerationTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Uno.SourceGenerationTasks.3.2.0\build\netstandard1.0\Uno.SourceGenerationTasks.targets'))" />
+  </Target>
+  <Import Project="packages\Uno.SourceGenerationTasks.3.2.0\build\netstandard1.0\Uno.SourceGenerationTasks.targets" Condition="Exists('packages\Uno.SourceGenerationTasks.3.2.0\build\netstandard1.0\Uno.SourceGenerationTasks.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
